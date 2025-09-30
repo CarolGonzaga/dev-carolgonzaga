@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Carol Gonzaga</title>
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="assets/images/logo.ico" type="image/x-icon">
+
+    <!-- ESTILO -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- FONTE -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- BIBLIOTECAS -->
+    <script src="https://kit.fontawesome.com/ec3f8a7c11.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+</head>
+
+<body>
+    <div class="dashboard">
+
+        <header class="header">
+            <img src="assets/images/logo-carol-gonzaga.png" alt="Logo Carol Gonzaga" class="logo">
+            <nav class="menu">
+                <a href="#" class="active">Home</a>
+                <a href="#">Resumo</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Contato</a>
+            </nav>
+        </header>
+
+        <aside class="sidebar-left">
+            <div class="card">
+                <h3>Tecnologias Conhecidas</h3>
+                <ul class="skills">
+                    <li>
+                        <div class="skill-info"><i class="fa-brands fa-html5"></i><span>HTML - CSS</span></div>
+                        <span class="tag senior">Senior</span>
+                        <div class="bar">
+                            <div style="width:100%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="skill-info"><i class="fa-brands fa-js"></i><span>JAVASCRIPT</span></div>
+                        <span class="tag senior">Senior</span>
+                        <div class="bar">
+                            <div style="width:90%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="skill-info"><i class="fa-solid fa-code"></i><span>TYPESCRIPT</span></div>
+                        <span class="tag pleno">Pleno</span>
+                        <div class="bar">
+                            <div style="width:80%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="skill-info"><i class="fa-brands fa-react"></i><span>REACT</span></div>
+                        <span class="tag pleno">Pleno</span>
+                        <div class="bar">
+                            <div style="width:60%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="skill-info"><i class="fa-solid fa-server"></i><span>API REST</span></div>
+                        <span class="tag junior">Júnior</span>
+                        <div class="bar">
+                            <div style="width:40%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="skill-info"><i class="fa-brands fa-node-js"></i><span>NODE</span></div>
+                        <span class="tag junior">Júnior</span>
+                        <div class="bar">
+                            <div style="width:30%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="skill-info"><i class="fa-brands fa-python"></i><span>PYTHON</span></div>
+                        <span class="tag junior">Júnior</span>
+                        <div class="bar">
+                            <div style="width:30%"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="card chart-doughnut">
+                <h3>Linguagens mais utilizadas</h3>
+                <div class="chart-container">
+                    <canvas alt="Gráfico de Pizza" id="languageChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card chart-bar">
+                <h3>Commits no Github</h3>
+                <div class="chart-container">
+                    <canvas alt="Gráfico de Barras" id="commitChart"></canvas>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar-right">
+            <nav class="top-icons">
+                <a href="#"><i class="fa-solid fa-bars"></i></a>
+                <div class="social-icons">
+                    <a href="https://linktr.ee/anacquesta"><i class="fa-solid fa-globe"></i></a>
+                    <a href="https://www.linkedin.com/in/anacquesta/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/CarolGonzaga"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </nav>
+            <div class="profile">
+                <img src="assets/images/avatar.png" alt="Avatar">
+                <div class="profile-name-wrapper">
+                    <h2>CAROL GONZAGA</h2>
+                </div>
+                <span class="role">Full Stack Developer</span>
+            </div>
+
+            <div class="card destaque carousel">
+                <div class="carousel-slides">
+                    <div class="slide">
+                        <div class="destaque-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div class="destaque-text">
+                            <h3>Design UX/UI</h3>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="destaque-icon">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <div class="destaque-text">
+                            <h3>API e Banco de Dados</h3>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="destaque-icon">
+                            <i class="fa-solid fa-cloud"></i>
+                        </div>
+                        <div class="destaque-text">
+                            <h3>Computação em Nuvem</h3>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="destaque-icon">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div class="destaque-text">
+                            <h3>Automação & IA</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-pagination">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-top"><i class="fa-solid fa-file-import"></i>
+                        <h3 id="stats-projects">00</h3>
+                    </div>
+                    <p>Projetos Publicados</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-top"><i class="fa-solid fa-star"></i>
+                        <h3 id="stats-starred">00</h3>
+                    </div>
+                    <p>Repositórios Favoritos</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-top"><i class="fa-solid fa-folder-open"></i>
+                        <h3 id="stats-repos">00</h3>
+                    </div>
+                    <p>Repositórios Criados</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-top"><i class="fa-solid fa-clock"></i>
+                        <h3 id="stats-hours">--</h3>
+                    </div>
+                    <p>Horas de Código</p>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
