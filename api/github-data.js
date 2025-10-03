@@ -84,3 +84,13 @@ export default async function handler(req, res) {
         res.status(500).json({ error: "Falha ao buscar dados do GitHub." });
     }
 }
+
+export default async function handler(req, res) {
+    try {
+        // DEBUG: checar se a variável está disponível
+        console.log("TOKEN lido?", !!process.env.GITHUB_TOKEN);
+
+        const reposResponse = await fetch(
+            `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`,
+            { headers }
+        );
