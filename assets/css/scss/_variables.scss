@@ -1,0 +1,98 @@
+// =================================================
+//   1. TIPOGRAFIA E VALORES GLOBAIS
+// =================================================
+
+$font-main: "Poppins", sans-serif;
+$font-mono: "Roboto Mono", monospace;
+$ease: cubic-bezier(0.22, 0.9, 0.35, 1);
+$dashboard-header-h: 120px;
+
+// =================================================
+//   2. TEMA CLARO (PADRÃO)
+// =================================================
+
+// Cores principais
+$light-accent-1: #ca4371;
+$light-accent-2: #4f3d6b;
+$light-accent-hover: #b13b66;
+$light-accent-light: #f9e6ee;
+$light-gradient-logo: linear-gradient(90deg, #ca4371 0%, #4f3d6b 100%);
+
+// Ícones dos cards de estatísticas
+$light-stat-icon-bg-1: #fbe9f0;
+$light-stat-icon-color-1: #ca4371;
+$light-stat-icon-bg-2: #ece8f5;
+$light-stat-icon-color-2: #4f3d6b;
+
+// Fundos e estrutura
+$light-fundo-pagina: #f5f4f8;
+$light-fundo-sidebar: #ffffff;
+$light-fundo-card: #ffffff;
+$light-sombra-card: rgba(0, 0, 0, 0.05);
+
+// Textos
+$light-texto-principal: #2d2d2d;
+$light-texto-secundario: #555555;
+$light-texto-light: #888888;
+
+// Bordas
+$light-borda-suave: #e4e4e4;
+$light-border: #e7e7ea;
+
+// Tags de skills
+$light-tag-senior: #4f3d6b;
+$light-tag-senior-bg: #ece8f5;
+$light-tag-pleno: #ca4371;
+$light-tag-pleno-bg: #fbe9f0;
+$light-tag-junior: #999999;
+$light-tag-junior-bg: #f2f2f2;
+
+// Ícones
+$light-icon-color: #666666;
+
+// Gráficos
+$light-chart-grid-color: #eaeaea;
+
+// =================================================
+//   3. TEMA ESCURO
+// =================================================
+
+// Cores principais
+$dark-accent-1: #ca4371;
+$dark-accent-2: #6a5788;
+$dark-accent-hover: #e4588c;
+$dark-accent-light: #3a293e;
+
+// Ícones dos stats
+$dark-stat-icon-bg-1: #3d2e43;
+$dark-stat-icon-color-1: #e884a8;
+$dark-stat-icon-bg-2: #342e44;
+$dark-stat-icon-color-2: #bfa8e5;
+
+// Fundos e estrutura
+$dark-fundo-pagina: #1c1923;
+$dark-fundo-sidebar: #231f2c;
+$dark-fundo-card: #2a2535;
+$dark-sombra-card: rgba(0, 0, 0, 0.4);
+
+// Textos
+$dark-texto-principal: #eae6f2;
+$dark-texto-secundario: #b8b1c5;
+$dark-texto-light: #8d859b;
+
+// Bordas
+$dark-borda-suave: #6b6b6b25;
+
+// Tags
+$dark-tag-senior: #bfa8e5;
+$dark-tag-senior-bg: #3c3350;
+$dark-tag-pleno: #e884a8;
+$dark-tag-pleno-bg: #3d2e43;
+$dark-tag-junior: #aaaaaa;
+$dark-tag-junior-bg: #2c2c2c;
+
+// Ícones
+$dark-icon-color: #b0a6c2;
+
+// Gráficos
+$dark-chart-grid-color: #3a3a3a;
