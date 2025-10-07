@@ -1,20 +1,151 @@
+/* =======================================================================
+   IMPORTAÇÃO DE FONTES
+   ======================================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400&display=swap');
+
+/* =======================================================================
+   VARIÁVEIS DE TEMA
+   ======================================================================= */
+
+/* Tema claro */
+/* =======================================================================
+   VARIÁVEIS DE TEMA - inspiradas na logo (#4F3D6B roxo / #CA4371 rosa)
+   ======================================================================= */
+
+/* 🌞 Tema claro (padrão) */
 :root {
-  --rosa-carmin: #E54A84;
-  --rosa: #CA4371;
-  --rosa-carmin-escuro: #d43164;
-  --roxo: #7A3F6A;
-  --roxo-claro: #B865A1;
-  --fundo-pagina: #1E1E1E;
-  /* Fundo com a textura de pontos */
-  --fundo-dashboard: #272727;
-  /* Fundo do container principal */
-  --fundo-card: #1a1a1a;
+  /* Cores principais */
+  --accent-1: #CA4371;
+  /* rosa principal */
+
+  --accent-2: #4F3D6B;
+  /* roxo de apoio */
+  /* Rosa principal (destaques, links, botões) */
+  --accent-color-hover: #B13B66;
+  /* Rosa mais escuro para hover */
+  --accent-color-light: #F9E6EE;
+  /* Rosa muito claro (fundos suaves) */
+  --gradient-logo: linear-gradient(90deg, #CA4371 0%, #4F3D6B 100%);
+
+  /* Secundário (baseado no roxo da logo) */
+  --accent-color-secondary: #4F3D6B;
+  /* Roxo de apoio para contraste */
+
+  /* Ícones dos cards de estatísticas */
+  --stat-icon-bg-1: #FBE9F0;
+  /* Rosa claro */
+  --stat-icon-color-1: #CA4371;
+  /* Rosa principal */
+  --stat-icon-bg-2: #ECE8F5;
+  /* Roxo suave */
+  --stat-icon-color-2: #4F3D6B;
+  /* Roxo da logo */
+
+  /* Fundos e estrutura */
+  --fundo-pagina: #F5F4F8;
+  /* Fundo geral */
+  --fundo-sidebar: #FFFFFF;
+  /* Fundo da sidebar */
+  --fundo-card: #FFFFFF;
   /* Fundo dos cards */
-  --fundo-stat: #2C2C2C;
-  /* Fundo dos cards de stats, um pouco mais escuros */
-  --texto: #F0F0F0;
-  --cinza: #aaa;
+  --sombra-card: rgba(0, 0, 0, 0.05);
+
+  /* Textos */
+  --texto-principal: #2D2D2D;
+  /* Texto primário */
+  --texto-secundario: #555555;
+  /* Texto secundário */
+  --texto-light: #888888;
+  /* Texto suave */
+
+  /* Bordas e elementos sutis */
+  --borda-suave: #E4E4E4;
+  --border: #E7E7EA;
+
+  /* Tags de skills (níveis) */
+  --tag-senior: #4F3D6B;
+  --tag-senior-bg: #ECE8F5;
+
+  --tag-pleno: #CA4371;
+  --tag-pleno-bg: #FBE9F0;
+
+  --tag-junior: #999999;
+  --tag-junior-bg: #F2F2F2;
+
+  /* Ícones neutros */
+  --icon-color: #666666;
+
+  /* Gráficos */
+  --chart-grid-color: #EAEAEA;
+  --chart-text-color: var(--texto-secundario);
+
+  /* Tipografia */
+  --font-main: 'Poppins', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+
+  /* Header fixo */
+  --dashboard-header-h: 120px;
+
+  /* animation timing */
+  --ease: cubic-bezier(.22, .9, .35, 1);
 }
+
+/* 🌙 Tema escuro (harmonizado com a logo) */
+[data-theme="dark"] {
+  /* Cores principais */
+  --accent-2: #6a5788;
+  --accent-color: #CA4371;
+  /* Rosa vibrante mantém destaque */
+  --accent-color-hover: #E4588C;
+  /* Rosa mais claro para hover */
+  --accent-color-light: #3A293E;
+  /* Fundo rosa escuro translúcido */
+
+  /* Fundos e estrutura */
+  --fundo-pagina: #1C1923;
+  /* Fundo principal escuro */
+  --fundo-sidebar: #231F2C;
+  /* Sidebar */
+  --fundo-card: #2A2535;
+  /* Fundo dos cards */
+  --sombra-card: rgba(0, 0, 0, 0.4);
+
+  /* Textos */
+  --texto-principal: #EAE6F2;
+  --texto-secundario: #B8B1C5;
+  --texto-light: #8D859B;
+
+  /* Ícones dos stats */
+  --stat-icon-bg-1: #3D2E43;
+  --stat-icon-color-1: #E884A8;
+  --stat-icon-bg-2: #342E44;
+  --stat-icon-color-2: #BFA8E5;
+
+  /* Tags */
+  --tag-senior: #BFA8E5;
+  --tag-senior-bg: #3C3350;
+
+  --tag-pleno: #E884A8;
+  --tag-pleno-bg: #3D2E43;
+
+  --tag-junior: #AAAAAA;
+  --tag-junior-bg: #2C2C2C;
+
+  /* Ícones neutros */
+  --icon-color: #B0A6C2;
+
+  /* Gráficos */
+  --chart-grid-color: #3A3A3A;
+  --chart-text-color: var(--texto-secundario);
+
+  /* Bordas */
+  --borda-suave: #6b6b6b25;
+}
+
+
+/* =======================================================================
+   RESET E BASE
+   ======================================================================= */
 
 * {
   margin: 0;
@@ -22,405 +153,1086 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  background: var(--fundo-pagina);
+  color: var(--texto-principal);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 12px;
+}
+
 a {
   text-decoration: none;
   color: inherit;
 }
 
-li {
+ul {
   list-style: none;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--fundo-pagina);
-  background-image: url("../images/background.png");
-  background-size: auto;
-  color: var(--texto);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
-}
+/* =======================================================================
+   LAYOUT GERAL DO DASHBOARD
+   ======================================================================= */
 
-.dashboard {
-  width: 100%;
-  max-width: 1280px;
-  height: 100%;
-  max-height: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background: var(--fundo-dashboard);
-  border-radius: 20px;
-
+.dashboard-container {
   display: grid;
-  gap: 20px;
-  grid-template-columns: 1.5fr 1.5fr 1fr;
-  grid-template-rows: auto 1fr;
-  grid-template-areas:
-    "header header s-right"
-    "s-left main   s-right";
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
 }
 
-/* Cabeçalho */
-.header {
+/* =======================================================================
+   SIDEBAR
+   ======================================================================= */
+
+.sidebar {
+  background: var(--fundo-sidebar);
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  grid-area: header;
-  margin-bottom: 20px;
-}
-
-.logo {
-  max-width: 100px;
-}
-
-.menu {
-  display: flex;
-  gap: 15px;
-}
-
-.menu a {
-  font-weight: 600;
-  font-size: 12px;
-  color: var(--cinza);
-  padding: 8px 16px;
-  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  border-right: 1px solid var(--borda-suave);
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
 }
 
-.menu a.active,
-.menu a:hover {
-  color: var(--texto);
-  background-color: var(--rosa-carmin);
-}
+/* =======================================================================
+   NOVO PERFIL NA SIDEBAR
+   ======================================================================= */
 
-/* Área de conteúdo */
-.sidebar-left {
+.sidebar-profile {
   display: flex;
   flex-direction: column;
-  grid-area: s-left;
-}
-
-.sidebar-left .card {
-  height: 100%;
-}
-
-/* Card Genérico */
-.card {
-  background: var(--fundo-card);
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-}
-
-.card h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--texto);
-  margin-bottom: 30px;
-}
-
-/* Sidebar esquerda - Skills */
-.skills {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  min-width: 250px;
-}
-
-.skills li {
-  background: var(--fundo-stat);
-  border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 0;
-  display: flex;
-  flex-wrap: wrap;
   align-items: center;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.avatar-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  padding: .5px;
+  background: var(--gradient-logo);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+/* Imagem dentro do container */
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  /* Removemos a borda e a margem daqui */
+}
+
+.profile-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--texto-principal);
+  margin: 0;
+}
+
+.profile-role {
+  font-size: 0.85rem;
+  color: var(--texto-light);
+  margin-top: 0.25rem;
+}
+
+/* HEADER DA SIDEBAR (LOGO) */
+.sidebar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--borda-suave);
+}
+
+/* =======================================================================
+   NOVO LOGO NO CABEÇALHO PRINCIPAL
+   ======================================================================= */
+.header-logo-widget img {
+  max-width: 100px;
+  height: auto;
+}
+
+/* =======================================================================
+   MENU PRINCIPAL
+   ======================================================================= */
+
+.sidebar-nav {
+  flex-grow: 1;
+  margin-top: 2rem;
+}
+
+.menu-section {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--texto-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+}
+
+/* Itens do menu */
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.2rem;
+  color: var(--texto-secundario);
+  font-weight: 500;
+  border-radius: 10px;
+  transition: all 0.25s var(--ease);
+  position: relative;
+  margin-bottom: 0.4rem;
+  /* espaçamento entre itens */
+}
+
+.nav-link i {
+  font-size: 1.2rem;
+  color: var(--icon-color);
+  transition: color 0.25s ease;
+}
+
+.nav-link span {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+/* Hover e ativo */
+.nav-link:hover,
+.nav-link.active {
+  background: var(--accent-color-light);
+  color: var(--accent-1);
+}
+
+.nav-link:hover i,
+.nav-link.active i {
+  color: var(--accent-1);
+}
+
+/* Animação sutil ao passar o mouse */
+.nav-link:hover {
+  transform: translateX(4px);
+}
+
+/* =======================================================================
+   RODAPÉ DA SIDEBAR (user + ações + logout)
+   ======================================================================= */
+
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--borda-suave);
+}
+
+/* Bloco de botões (CV, tema, perfil) */
+.footer-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.6rem;
+  gap: 5rem;
+}
+
+/* ===============================================
+   BOTÃO DE LOGOUT - NOVO ESTILO (ÍCONE)
+   =============================================== */
+
+.btn-logout {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-align: left;
+  padding: .8rem;
+  border-radius: 4px;
+  border: none;
+  background: var(--fundo-pagina);
+  width: 100%;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-logout i {
+  color: var(--texto-light);
+  font-size: 1.1rem;
+  transition: color 0.25s ease;
+}
+
+.btn-logout span {
+  color: var(--texto-principal);
+}
+
+.btn-logout:hover {
+  background: var(--accent-1);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-logout:hover i {
+  color: #fff;
+  /* Ícone branco */
+}
+
+/* ===============================================
+   BOTÃO DE TEMA (SVGs de sol e lua)
+   =============================================== */
+
+.theme-toggle-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Ícones dentro do botão */
+.theme-toggle-btn .hero-icon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.5;
+  color: var(--texto-light);
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle-btn .icon-sun {
+  display: block;
+}
+
+.theme-toggle-btn .icon-moon {
+  display: none;
+}
+
+/* EFEITO DE RELEVO - MODO CLARO */
+.theme-toggle-btn {
+  background: var(--fundo-sidebar);
+  box-shadow: 2px 2px 5px #d1d1d1,
+    -4px -4px 8px #ffffff;
+}
+
+/* Efeito de "pressionado" quando está ativo (modo escuro) */
+.theme-toggle-btn[aria-pressed="true"] {
+  /* As sombras se invertem para dentro (inset) */
+  box-shadow: inset 4px 4px 8px #d1d1d1,
+    inset -4px -4px 8px #ffffff;
+}
+
+/* Hover sutil */
+.theme-toggle-btn:hover .hero-icon {
+  color: var(--accent-1);
+}
+
+/* ===============================================
+   ESTILOS PARA O MODO ESCURO
+   =============================================== */
+[data-theme="dark"] .theme-toggle-btn {
+  box-shadow: 4px 4px 8px #1a1721,
+    -4px -4px 8px #2c2737;
+}
+
+[data-theme="dark"] .theme-toggle-btn[aria-pressed="true"] {
+  box-shadow: inset 4px 4px 8px #1a1721,
+    inset -4px -4px 8px #2c2737;
+}
+
+[data-theme="dark"] .theme-toggle-btn .icon-sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle-btn .icon-moon {
+  display: block;
+}
+
+
+/* ===============================================
+   COPYRIGHT
+   =============================================== */
+.copyright-footer {
+  font-size: 0.8rem;
+  color: var(--texto-light);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* =======================================================================
+   MENU HAMBURGUER
+   ======================================================================= */
+
+/* Oculto em telas grandes */
+.sidebar-toggle {
+  display: none;
+}
+
+/* =======================================================================
+   CONTEÚDO PRINCIPAL (MAIN CONTENT)
+   ======================================================================= */
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* remove rolagem vertical do main */
+}
+
+/* HEADER DO CONTEÚDO PRINCIPAL */
+.main-header {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.welcome-message h1 {
+  font-size: 1.8rem;
+  color: var(--texto-principal);
+  font-weight: 700;
+}
+
+.welcome-message p {
+  font-size: 0.9rem;
+  color: var(--texto-secundario);
+  margin-top: 0.3rem;
+}
+
+/* =======================================================================
+   ✨ GRID PRINCIPAL DO DASHBOARD - AJUSTADO ALTURAS DA ÚLTIMA LINHA ✨
+   ======================================================================= */
+
+.main-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.5fr;
+  /* 4 colunas (última mais larga) */
+  grid-template-rows:
+    1fr
+    /* linha 1 -> stat-cards */
+    1fr 1fr 1fr 1fr
+    /* linhas 2-5 -> commits (4 linhas) */
+    1fr 1fr;
+  /* linhas 6-7 -> carousel (2 linhas) */
+  gap: 1.2rem;
+  height: calc(100vh - var(--dashboard-header-h));
+  /* garante ocupar só o espaço restante */
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+.main-dashboard-grid>* {
+  min-height: 0;
+}
+
+/* Cada card se ajusta ao espaço igualmente */
+.stat-card {
+  flex: 1 1 auto;
+  min-width: 200px;
+  max-width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-cards-group {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  /* impede quebra de linha */
+  gap: 1rem;
+}
+
+.main-dashboard-grid>.stat-cards-group {
+  grid-column: 1 / 4;
+  /* Ocupa as 3 primeiras colunas */
+  grid-row: 1 / 1;
+  /* Fica na primeira linha */
+}
+
+/* Conteúdos Internos dos Cards (Gráficos, Listas, Carrossel) */
+.chart-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Cards base */
+.card,
+.stat-card {
+  background: var(--fundo-card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  /* Padding padrão dos cards */
+  box-shadow: 0 4px 12px rgba(79, 61, 107, 0.08);
+  border: 1px solid var(--borda-suave);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  transition: all 0.3s ease;
+}
+
+.card:hover,
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(79, 61, 107, 0.15);
+}
+
+/* Títulos dos cards com barra verde */
+.card h3 {
+  text-align: left;
+  margin-bottom: 1.5rem;
+  color: var(--texto-principal);
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 25px;
+  height: 3px;
+  background-color: var(--accent-1);
+  border-radius: 2px;
+}
+
+
+/* Cards "Projetos Publicados" e "Horas de Código" */
+.stat-projetos,
+.stat-horas,
+.stat-criados {
+  padding: 1.2rem 1.5rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.stat-projetos .stat-icon-wrapper,
+.stat-horas .stat-icon-wrapper,
+.stat-criados .stat-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1.2rem;
+  flex-shrink: 0;
+}
+
+.stat-projetos .stat-icon-wrapper,
+.stat-criados .stat-icon-wrapper {
+  background-color: var(--stat-icon-bg-1);
+}
+
+.stat-projetos .stat-icon-wrapper i,
+.stat-criados .stat-icon-wrapper i {
+  color: var(--stat-icon-color-1);
+  font-size: 1.8rem;
+}
+
+.stat-horas .stat-icon-wrapper {
+  background-color: var(--stat-icon-bg-2);
+}
+
+.stat-horas .stat-icon-wrapper i {
+  color: var(--stat-icon-color-2);
+  font-size: 1.8rem;
+}
+
+.stat-icon-wrapper {
+  box-shadow: 0 2px 6px rgba(79, 61, 107, 0.12);
+}
+
+.stat-projetos .stat-content,
+.stat-horas .stat-content,
+.stat-criados .stat-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
+.stat-projetos h3,
+.stat-horas h3,
+.stat-criados h3 {
+  text-align: left;
+  font-size: 1.6rem;
+  margin-bottom: 0.1rem;
+  padding-bottom: 0;
+  color: var(--texto-principal);
+}
+
+.stat-projetos h3::after,
+.stat-horas h3::after,
+.stat-criados h3::after {
+  display: none;
+}
+
+.stat-projetos p,
+.stat-horas p,
+.stat-criados p {
+  font-size: 0.85rem;
+  color: var(--texto-secundario);
+  text-align: left;
+  margin-top: 0;
+}
+
+
+/* =======================================================================
+   GRID POSICIONAMENTO 
+   ======================================================================= */
+
+/* Languages chart (coluna 4) -> ocupa linhas 1 a 3 (3x stat-card) */
+.languages-chart-card {
+  grid-column: 4 / 5;
+  grid-row: 1 / 4;
+}
+
+/* Commits chart (maior) -> ocupa colunas 1-3 e linhas 2-5 (4x stat-card) */
+.commits-chart-card {
+  grid-column: 1 / 4;
+  grid-row: 2 / 6;
+}
+
+/* Soft Skills -> ocupa a coluna 3 */
+.soft-skills-card {
+  grid-column: 1 / 2;
+  /* NOVO CARD */
+  grid-row: 6 / 8;
+}
+
+/* Carousel -> ocupa colunas 1-3 e linhas 6-7 (2x stat-card) */
+.carousel-card {
+  grid-column: 2 / 4;
+  /* AJUSTADO */
+  grid-row: 6 / 8;
+}
+
+/* Technologies -> coluna 4, ocupa linhas 4-7 (restante da coluna direita) */
+.technologies-card {
+  grid-column: 4 / 5;
+  grid-row: 4 / 8;
+}
+
+
+/* GRÁFICO DE LINHA - AJUSTADO VAZAMENTO */
+.commits-chart-card {
+  padding-bottom: 0.8rem;
+  overflow: hidden;
+}
+
+.commits-chart-card .chart-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.commits-chart-card .chart-container canvas {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto !important;
+  width: auto !important;
+  min-width: 0;
+}
+
+/* GRÁFICO DE ROSQUINHA - AJUSTADO TAMANHO */
+.languages-chart-card {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.languages-chart-card h3 {
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+}
+
+.languages-chart-card .chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 70%;
+  max-height: 70%;
+  margin: auto;
+  flex-grow: 0;
+  align-self: center;
+  justify-content: center;
+  display: flex;
+}
+
+.languages-chart-card .chart-container canvas {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto !important;
+  width: auto !important;
+}
+
+.languages-chart-card,
+.technologies-card {
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(79, 61, 107, 0.08);
+}
+
+
+/* =======================================================================
+   LISTA DE SKILLS (TECNOLOGIAS)
+   ======================================================================= */
+
+.skills-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+  flex-grow: 1;
+  justify-content: space-around;
+  padding-bottom: 0;
+}
+
+.skills-list li {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  border-bottom: 1px solid var(--borda-suave);
+  padding-bottom: 0.5rem;
+}
+
+.skills-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.skills-list li:hover {
+  background: rgba(79, 61, 107, 0.03);
+  border-radius: 6px;
+  transition: background 0.3s ease;
 }
 
 .skill-info {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
+  gap: 0.5rem;
+  min-width: 100px;
 }
 
 .skill-info i {
-  font-size: 24px;
-  color: var(--cinza);
-  width: 25px;
-  text-align: center;
+  color: var(--icon-color);
+  font-size: 1.1rem;
 }
 
 .skill-info span {
-  font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
+  color: var(--texto-principal);
 }
-
-.tag {
-  padding: 3px 10px;
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 8px;
-}
-
-.tag.senior {
-  background: var(--rosa-carmin);
-}
-
-.tag.pleno {
-  background: var(--roxo);
-}
-
-.tag.junior {
-  background: var(--roxo-claro);
-}
-
 
 .bar {
-  width: 100%;
+  background: var(--border);
+  border-radius: 6px;
   height: 8px;
-  background: #202020;
-  border-radius: 8px;
+  flex-grow: 1;
+  margin: 0 .7rem;
+  overflow: hidden;
 }
 
 .bar div {
   height: 100%;
-  background: var(--rosa-carmin);
-  border-radius: 8px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius: 6px;
+  transition: width 700ms var(--ease);
 }
 
-/* Conteúdo central */
-.main-content {
-  display: grid;
-  grid-area: main;
-  grid-template-rows: 1fr 1fr;
-  gap: 20px;
-  min-width: 0;
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  min-width: 65px;
+  text-align: center;
 }
 
-/* Forçar que as áreas internas não cresçam além da dashboard */
-.sidebar-left,
-.main-content,
-.sidebar-right {
-  min-height: 0;
-  overflow: hidden;
+.tag.senior {
+  background-color: var(--tag-senior-bg);
+  color: var(--tag-senior);
 }
 
-.main-content .card {
-  height: 100%;
-  min-height: 0;
+.tag.pleno {
+  background-color: var(--tag-pleno-bg);
+  color: var(--tag-pleno);
+}
+
+.tag.junior {
+  background-color: var(--tag-junior-bg);
+  color: var(--tag-junior);
+}
+
+/* =======================================================================
+   CARD DE SOFT SKILLS
+   ======================================================================= */
+.soft-skills-card .soft-skills-list {
+  list-style: none;
+  padding-top: 1rem;
+  padding-right: 0.5rem;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+  justify-content: center;
+  max-height: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-1) var(--fundo-card);
 }
 
-.main-content .card .chart-container {
-  flex: 1;
+.soft-skills-list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--texto-secundario);
+}
+
+.soft-skills-list li i {
+  font-size: 1.2rem;
+  color: var(--accent-2);
+  /* Usa a cor roxa para consistência */
+  width: 20px;
+  /* Garante alinhamento dos textos */
+  text-align: center;
+}
+
+
+/* =======================================================================
+   CARROSSEL (DESTAQUES)
+   ======================================================================= */
+
+.carousel-card {
+  position: relative;
+}
+
+.carousel-content-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-height: 0;
-  overflow: auto;
 }
 
-.chart-container {
+.carousel {
+  overflow: hidden;
   position: relative;
   flex-grow: 1;
+  display: flex;
+  align-items: center;
   min-height: 0;
 }
 
-/* Sidebar direita */
-.sidebar-right {
-  grid-area: s-right;
-  background: var(--fundo-card);
-  border-radius: 16px;
-  padding: 25px;
+.carousel-slides {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-}
-
-.top-icons {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.top-icons a,
-.social-icons a {
-  font-size: 20px;
-  color: var(--cinza);
-  transition: color 0.3s ease;
-}
-
-.top-icons a:hover,
-.social-icons a:hover {
-  color: var(--rosa-carmin);
-}
-
-.social-icons {
-  display: flex;
-  gap: 20px;
-}
-
-.profile {
-  text-align: center;
-}
-
-.profile img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 5px solid var(--rosa-carmin);
-  object-fit: cover;
-}
-
-.profile h2 {
-  font-size: 20px;
-  letter-spacing: 1px;
-  margin-top: 10px;
-}
-
-.role {
-  display: inline-block;
-  margin-top: 5px;
-  background: var(--rosa-carmin);
-  color: #fff;
-  padding: 8px 24px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-/* Carrossel (Destaque) */
-.sidebar-right .destaque {
-  display: flex;
-  align-items: center;
-  padding: 10px 0 40px 0;
-  margin: 0;
-}
-
-.sidebar-right .carousel {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  border-radius: 10px;
-  background: var(--fundo-stat);
-}
-
-.sidebar-right .carousel-slides {
-  display: flex;
-  flex-wrap: nowrap;
-  /* impede quebra de linha */
   transition: transform 0.5s ease-in-out;
+  flex-grow: 1;
   width: 100%;
-  /* garante largura inicial */
 }
 
-.sidebar-right .slide {
+.slide {
   flex: 0 0 100%;
-  max-width: 100%;
+  padding: 1.2rem 1.5rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  min-height: 100px;
+}
+
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  color: var(--accent-1);
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1.8rem;
+  z-index: 10;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
-  text-align: center;
-  overflow: hidden;
 }
 
-.sidebar-right .destaque-icon {
-  font-size: 28px;
-  color: var(--cinza);
+.carousel-nav-btn:hover {
+  color: var(--accent-color-hover);
+  transform: translateY(-50%) scale(1.2);
 }
 
-.sidebar-right .destaque-text {
-  width: 100%;
-  box-sizing: border-box;
+.carousel-nav-btn.prev {
+  left: 10px;
 }
 
-.sidebar-right .destaque-text h3 {
-  font-size: 16px;
-  color: var(--rosa-carmin);
-  margin: 0;
-}
-
-.sidebar-right .destaque-text p {
-  font-size: 10px;
-  color: var(--cinza);
-  line-height: 1.5;
-  word-wrap: break-word;
-  white-space: normal;
+.carousel-nav-btn.next {
+  right: 10px;
 }
 
 
-.sidebar-right .carousel-pagination {
+/* Classe para ocultar elementos visualmente, mas mantê-los para leitores de tela */
+.sr-only {
   position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-}
-
-.sidebar-right .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--fundo-dashboard);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.dot.active {
-  background: var(--rosa-carmin);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 
-.stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  width: 100%;
+/* ======================================================================= */
+/*  📱 RESPONSIVIDADE REFINADA PARA TABLETS (800px a 1199px) — MODO FLEX   */
+/* ======================================================================= */
+@media (max-width: 1199px) {
+
+  /* ===== Estrutura principal ===== */
+  .dashboard-container {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 230px;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 10;
+  }
+
+  .main-content {
+    margin-left: 230px;
+    width: calc(100% - 230px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
+    min-height: 100vh;
+    padding: 1.5rem;
+  }
+
+  /* ===== Layout interno em uma coluna ===== */
+  .main-dashboard-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+    height: auto;
+  }
+
+  .stat-cards-group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .stat-card {
+    flex: 1 1 calc(33.33% - 1rem);
+    max-width: 260px;
+  }
+
+  /* Todos os demais cards em uma única coluna */
+  .card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ===== Rolagem e alinhamento ===== */
+  html,
+  body {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .soft-skills-card .soft-skills-list {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 10%;
+    padding-top: 1rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-1) var(--fundo-card);
+  }
+
+  .soft-skills-card .soft-skills-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  /* ===== Gráficos e carrossel adaptáveis ===== */
+  .languages-chart-card {
+    min-height: 360px;
+    /* aumenta altura mínima */
+  }
+
+  .languages-chart-card .chart-container {
+    max-height: none;
+    height: 260px;
+  }
+
+  .chart-container canvas {
+    max-width: 100%;
+    height: auto !important;
+  }
+
+  .carousel-card .carousel {
+    flex-direction: column;
+  }
 }
 
-.stat {
-  background: var(--fundo-stat);
-  border-radius: 12px;
-  padding: 15px;
-  text-align: left;
-}
 
-.stat-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 5px;
-}
+/* =======================================================================
+   RESPONSIVIDADE PARA CELULARES (até 749px) - VERSÃO FINAL
+   ======================================================================= */
 
-.stat i {
-  color: var(--cinza);
-  font-size: 22px;
-}
+@media (max-width: 749px) {
+  .main-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3rem;
+    padding-left: 0;
+  }
 
-.stat h3 {
-  color: var(--texto);
-  font-size: 24px;
-  margin: 0;
-  font-weight: 700;
-}
+  .header-logo-widget {
+    margin-left: auto;
+  }
 
-.stat p {
-  margin-top: 20px;
-  font-size: 12px;
-  color: var(--cinza);
-  text-align: center;
+  .welcome-message {
+    width: 100%;
+    order: 3;
+    text-align: left;
+  }
+
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+    padding: 1.5rem;
+    padding-top: 2rem;
+  }
+
+  /* --- EMPILHAMENTO DOS CARDS --- */
+  .main-dashboard-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .stat-cards-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* --- SIDEBAR E BOTÃO DE MENU --- */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    transform: translateX(-100%);
+    /* Começa escondida */
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+    /* Mostra a sidebar */
+  }
+
+  .sidebar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: static;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 1001;
+    background: var(--fundo-card);
+    color: var(--texto-principal);
+    border: 1px solid var(--borda-suave);
+    border-radius: 8px;
+    width: 38px;
+    height: 38px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  .languages-chart-card {
+    min-height: 320px;
+  }
+
+  .commits-chart-card {
+    min-height: 350px;
+  }
+
+  .chart-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .soft-skills-card .soft-skills-list {
+    margin: 0;
+    padding: 0;
+    padding-block: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
 }
