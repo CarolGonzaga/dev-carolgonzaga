@@ -1,13 +1,24 @@
-# Ignorar arquivos de variáveis de ambiente
-.env
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Ignorar pasta de dependências do Node
 node_modules
-.vercel
+dist
+dist-ssr
+*.local
 
-# Ignorar arquivos CSS
-assets/css/style.css
-assets/css/style.css.map
-
-# Ignorar pasta de build
-/public
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
