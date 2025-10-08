@@ -4,4 +4,10 @@
 # Ignorar pasta de dependências do Node
 node_modules
 .vercel
+
+# Ignorar arquivos CSS
 assets/css/style.css
+assets/css/style.css.map
+
+# Ignorar pasta de build
+/public
