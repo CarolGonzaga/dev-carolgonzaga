@@ -21,6 +21,33 @@ function Dashboard() {
         { name: 'PYTHON', icon: faPython, percentage: '30%', level: 'Júnior' }
     ];
 
+    const slidesData = [
+        {
+            id: 1,
+            icon: faLaptopCode,
+            title: 'Design UX/UI',
+            text: 'Interfaces intuitivas com foco no usuário.'
+        },
+        {
+            id: 2,
+            icon: faDatabase,
+            title: 'API e Banco de Dados',
+            text: 'APIs REST seguras e bancos de dados otimizados.'
+        },
+        {
+            id: 3,
+            icon: faCloud,
+            title: 'Computação em Nuvem',
+            text: 'Deploy e serviços essenciais de Google Cloud (GCP) e AWS.'
+        },
+        {
+            id: 4,
+            icon: faRobot,
+            title: 'Automação & IA',
+            text: 'Integrações com APIs de IA para otimizar processos.'
+        }
+    ];
+
     return (
         <>
             <header className="main-header">
@@ -128,7 +155,15 @@ function Dashboard() {
                     <h3>Destaques</h3>
                     <div className="carousel">
                         <div className="carousel-slides">
-                            {/* Slides do carrossel aqui */}
+                            {slidesData.map((slide) => (
+                                <div className="slide" key={slide.id}>
+                                    <div className="slide-content">
+                                        <FontAwesomeIcon icon={slide.icon} className="sidebar-icon" />
+                                        <h4>{slide.title}</h4>
+                                        <p>{slide.text}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                         <button className="carousel-nav-btn prev" aria-label="Slide anterior">
                             <FontAwesomeIcon icon={faChevronLeft} className="sidebar-icon" />
