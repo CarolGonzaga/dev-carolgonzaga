@@ -1,19 +1,18 @@
-import { useState } from 'react'
+import { Outlet } from 'react-router-dom'; // 1. Importe o Outlet
 import Sidebar from './components/Sidebar';
-import Dashboard from './pages/Dashboard';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // 2. Removemos o 'useState' e a importação do Dashboard daqui
 
   return (
     <div className="dashboard-container">
       <Sidebar />
 
       <main className="main-content">
-        <Dashboard />
+        <Outlet />
       </main>
     </div>
   )
 }
 
-export default App
+export default App;
