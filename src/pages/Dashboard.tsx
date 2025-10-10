@@ -1,4 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
+import { useGitHubData } from '../context/GitHubDataContext';
+
 import Chart from 'chart.js/auto';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
@@ -35,39 +37,14 @@ const slidesData = [
 
 function Dashboard() {
 
-    const [stats, setStats] = useState<any>({ public_repos: 0, oldest_repo_date: null });
-    const [languages, setLanguages] = useState<any>(null);
-    const [commits, setCommits] = useState<any>(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+    const { data, isLoading, error } = useGitHubData();
 
+    const stats = data ? data.stats : { public_repos: 0, oldest_repo_date: null };
+    const languages = data ? data.languages : null;
+    const commits = data ? data.commits : null;
 
     const languageChartRef = useRef<Chart | null>(null);
     const commitChartRef = useRef<Chart | null>(null);
-
-    // --- EFEITO PARA BUSCAR DADOS DA API ---
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setIsLoading(true);
-                setError(null);
-                const response = await fetch('/api/github-data');
-                if (!response.ok) {
-                    throw new Error(`Erro na API: ${response.statusText}`);
-                }
-                const data = await response.json();
-                setStats(data.stats);
-                setLanguages(data.languages);
-                setCommits(data.commits);
-            } catch (err: any) {
-                setError('Falha ao carregar os dados do GitHub.');
-                console.error(err);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-        fetchData();
-    }, []);
 
     // --- CÁLCULO DAS HORAS DE CÓDIGO ---
     const totalHours = useMemo(() => {

@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { ThemeProvider } from './context/ThemeContext';
 import { SidebarProvider } from './context/SidebarContext';
+import { GitHubDataProvider } from './context/GitHubDataContext';
 
 // Importe seu SASS principal
 import './styles/main.scss';
@@ -36,7 +37,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ThemeProvider>
       <SidebarProvider>
-        <RouterProvider router={router} />
+        <GitHubDataProvider>
+          <RouterProvider router={router} />
+        </GitHubDataProvider>
       </SidebarProvider>
     </ThemeProvider>
   </React.StrictMode>
