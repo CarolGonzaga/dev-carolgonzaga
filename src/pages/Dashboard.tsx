@@ -14,6 +14,7 @@ import { faHtml5, faJs, faReact, faNodeJs, faPython } from '@fortawesome/free-br
 
 import logoImg from '../assets/images/logo-carol-gonzaga.png';
 import Carousel from '../components/Carousel';
+import Header from '../components/Header';
 
 Chart.register(ChartDataLabels);
 
@@ -300,15 +301,10 @@ function Dashboard() {
 
     return (
         <>
-            <header className="main-header">
-                <div className="welcome-message">
-                    <h1>Olá, Visitantes!</h1>
-                    <p>Bem-vindos ao meu portfólio profissional de desenvolvimento.</p>
-                </div>
-                <div className="header-logo-widget">
-                    <img src={logoImg} alt="Logotipo de Carol Gonzaga" />
-                </div>
-            </header>
+            <Header
+                title="Olá, Visitantes!"
+                subtitle="Bem-vindos ao meu portfólio profissional de desenvolvimento."
+            />
 
             <h2 className="sr-only">Painel de Controle e Estatísticas</h2>
 

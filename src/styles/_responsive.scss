@@ -98,30 +98,11 @@
 //   CELULARES (até 749px)
 // ===============================================
 @media (max-width: 749px) {
-
     .main-content {
         width: 100%;
         margin-left: 0;
         padding: 1.5rem;
         padding-top: 2rem;
-    }
-
-    .main-header {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 3rem;
-        padding-left: 0;
-
-        .header-logo-widget {
-            margin-left: auto;
-        }
-
-        .welcome-message {
-            width: 100%;
-            order: 3;
-            text-align: left;
-        }
     }
 
     .sidebar-toggle {

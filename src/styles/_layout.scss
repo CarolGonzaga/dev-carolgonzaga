@@ -21,32 +21,6 @@
     overflow: hidden;
 }
 
-// --- Cabeçalho do Conteúdo Principal ---
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-
-    .welcome-message {
-        h1 {
-            font-size: 1.8rem;
-            color: var(--texto-principal);
-            font-weight: 700;
-        }
-        p {
-            font-size: 0.9rem;
-            color: var(--texto-secundario);
-            margin-top: 0.3rem;
-        }
-    }
-
-    .header-logo-widget img {
-        max-width: 100px;
-        height: auto;
-    }
-}
-
 // ===============================================
 //   4. GRID PRINCIPAL DO DASHBOARD
 // ===============================================
