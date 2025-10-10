@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useGitHubData } from '../context/GitHubDataContext';
 
 import Chart from 'chart.js/auto';
