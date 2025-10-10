@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 type Slide = {
     id: number;
@@ -28,11 +28,11 @@ function Carousel({ slides }: CarouselProps) {
         }
     };
 
-    const handleNext = () => {
+    const handleNext = useCallback(() => {
         if (isTransitioning) return;
         setIsTransitioning(true);
         setCurrentIndex(prev => prev + 1);
-    };
+    }, [isTransitioning]);
 
     const handlePrev = () => {
         if (isTransitioning) return;
@@ -41,13 +41,18 @@ function Carousel({ slides }: CarouselProps) {
     };
 
     useEffect(() => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
+
         timeoutRef.current = setTimeout(() => {
             handleNext();
         }, 5000);
+
         return () => {
             if (timeoutRef.current) clearTimeout(timeoutRef.current);
         };
-    }, [currentIndex]);
+    }, [currentIndex, handleNext]);
 
 
     useEffect(() => {
