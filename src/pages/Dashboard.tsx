@@ -170,9 +170,6 @@ function Dashboard() {
                 }
 
 
-
-                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-
                 const currentYear = new Date().getFullYear();
 
                 const monthlyCommits = new Array(12).fill(0);
