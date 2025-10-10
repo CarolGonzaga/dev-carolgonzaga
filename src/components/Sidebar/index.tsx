@@ -1,5 +1,4 @@
 import styles from './Sidebar.module.scss';
-
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -14,11 +13,15 @@ import {
 
 import avatarImg from '../../assets/images/avatar.png';
 import cvFile from '../../assets/docs/CVAnaCarolineGonzaga.pdf';
+
+import { useSidebar } from '../../context/SidebarContext';
 import ThemeToggleButton from '../ThemeToggleButton';
 
 function Sidebar() {
+    const { isOpen } = useSidebar();
+
     return (
-        <aside className={styles.sidebar}>
+        <aside className={`${styles.sidebar} ${isOpen ? styles.active : ''}`}>
 
             <div className={styles['sidebar-header']}>
                 <div className={styles['sidebar-profile']}>

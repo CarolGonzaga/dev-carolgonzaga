@@ -1,14 +1,15 @@
-import { Outlet } from 'react-router-dom'; // 1. Importe o Outlet
+import { Outlet } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
+import SidebarToggle from './components/SidebarToggle';
 
 function App() {
-  // 2. Removemos o 'useState' e a importação do Dashboard daqui
 
   return (
     <div className="dashboard-container">
       <Sidebar />
 
       <main className="main-content">
+        <SidebarToggle />
         <Outlet />
       </main>
     </div>
