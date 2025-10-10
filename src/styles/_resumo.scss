@@ -7,7 +7,8 @@
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto auto 1fr;
     gap: 1.5rem;
-    height: 100%;
+    flex-grow: 1;
+    min-height: 0;
 }
 
 .about-card {
@@ -126,10 +127,6 @@
     margin: 2rem 0; // 2rem de espaço vertical, 0 horizontal
 }
 
-.courses-card {
-    margin-block: 1rem;
-}
-
 // ===============================================
 //   COMPONENTE GAUGE CHART (IDIOMA)
 // ===============================================
@@ -224,12 +221,47 @@
 }
 
 // ===============================================
-//   RESPONSIVIDADE (TABLETS E CELULARES)
+//   RESPONSIVIDADE
 // ===============================================
 @media (max-width: 1199px) {
     .resumo-grid-container {
         display: flex;
         flex-direction: column;
         height: auto;
+    }
+}
+
+@media (max-height: 850px) and (min-width: 1199px) {
+    .gauge-chart-wrapper {
+        position: relative;
+        width: 200px;
+        height: 100px;
+    }
+
+    .gauge-guide {
+        position: absolute;
+        top: 15px;
+        left: 20px;
+        width: 80%;
+        height: 60%;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .gauge-arrow {
+        bottom: 9px;
+    }
+
+    .gauge-value {
+        font-size: 2rem;
+    }
+
+    .percent-sign {
+        font-size: 1rem;
+    }
+
+    .gauge-text {
+        font-size: 0.8rem;
+        margin-bottom: 3rem;
     }
 }
