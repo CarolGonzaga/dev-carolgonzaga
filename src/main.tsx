@@ -34,9 +34,9 @@ const router = createBrowserRouter([
 // 2. ENVOLVA A APLICAÇÃO COM OS PROVIDERS
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ThemeProvider>      {/* <-- Provider para o tema */}
-      <SidebarProvider>  {/* <-- Provider para a sidebar */}
-        <RouterProvider router={router} /> {/* <-- Sua aplicação com as rotas */}
+    <ThemeProvider>
+      <SidebarProvider>
+        <RouterProvider router={router} />
       </SidebarProvider>
     </ThemeProvider>
   </React.StrictMode>
