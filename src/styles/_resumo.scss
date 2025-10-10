@@ -121,8 +121,13 @@
     }
 }
 
+.card-divider {
+    border-top: 1px solid var(--borda-suave);
+    margin: 2rem 0; // 2rem de espaço vertical, 0 horizontal
+}
+
 .courses-card {
-    margin-block: 3rem 1rem;
+    margin-block: 1rem;
 }
 
 // ===============================================
@@ -216,4 +221,15 @@
     display: block;
     font-size: 1.1rem;
     letter-spacing: 0.3px;
+}
+
+// ===============================================
+//   RESPONSIVIDADE (TABLETS E CELULARES)
+// ===============================================
+@media (max-width: 1199px) {
+    .resumo-grid-container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
 }

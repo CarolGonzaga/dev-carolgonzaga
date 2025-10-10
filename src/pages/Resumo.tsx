@@ -153,6 +153,8 @@ function Resumo() {
                         </div>
                     </div>
 
+                    <div className="card-divider"></div>
+
                     <div className="courses-card">
                         <h3>Cursos</h3>
                         <div className="education-list">
