@@ -13,10 +13,14 @@
 }
 
 .welcomeMessage {
+    min-height: 60px;
+
     h1 {
         font-size: 1.8rem;
         color: var(--texto-principal);
         font-weight: 700;
+        margin: 0;
+        line-height: 1.2;
     }
     p {
         font-size: 0.9rem;
@@ -25,6 +29,7 @@
     }
 
     @media (max-width: 749px) {
+        min-height: auto;
         width: 100%;
         order: 3;
         text-align: left;
