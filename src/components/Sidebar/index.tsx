@@ -53,10 +53,10 @@ function Sidebar() {
                     </li>
 
                     <li>
-                        <a href="#portfolio" className={styles['nav-link']}>
+                        <NavLink to="/portfolio" className={({ isActive }) => isActive ? `${styles['nav-link']} ${styles.active}` : styles['nav-link']}>
                             <FontAwesomeIcon icon={faProjectDiagram} className={styles.icon} aria-hidden="true" />
                             <span>Portfólio</span>
-                        </a>
+                        </NavLink>
                     </li>
 
                     <li>

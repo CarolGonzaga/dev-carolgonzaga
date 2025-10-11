@@ -13,6 +13,7 @@ import './styles/main.scss';
 import App from './App';
 import Dashboard from './pages/Dashboard';
 import Resumo from './pages/Resumo';
+import Portfolio from './pages/Portfolio';
 
 // Configuração do roteador (você já tem isso)
 const router = createBrowserRouter([
@@ -20,14 +21,9 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
-      {
-        path: '/',
-        element: <Dashboard />,
-      },
-      {
-        path: '/resumo',
-        element: <Resumo />,
-      },
+      { path: '/', element: <Dashboard /> },
+      { path: '/resumo', element: <Resumo /> },
+      { path: '/portfolio', element: <Portfolio /> },
     ],
   },
 ]);

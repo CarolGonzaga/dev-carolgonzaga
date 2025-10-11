@@ -12,7 +12,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faHtml5, faJs, faReact, faNodeJs, faPython } from '@fortawesome/free-brands-svg-icons';
 
-import logoImg from '../assets/images/logo-carol-gonzaga.png';
 import Carousel from '../components/Carousel';
 import Header from '../components/Header';
 
