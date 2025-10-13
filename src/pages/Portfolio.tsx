@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import Header from '../components/Header';
 import PortfolioCard from '../components/PortfolioCard';
 import { projectsData, filters } from '../data/projects';

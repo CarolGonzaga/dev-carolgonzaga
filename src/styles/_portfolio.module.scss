@@ -48,6 +48,22 @@
 
 .portfolioGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
     gap: 3rem;
+    justify-content: center;
+}
+
+// ===============================================
+//   RESPONSIVIDADE
+// ===============================================
+@media (max-width: 1199px) {
+    .portfolioGrid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    }
+}
+
+@media (max-width: 749px) {
+    .portfolioFilters {
+        justify-content: center;
+    }
 }

@@ -3,7 +3,7 @@ import type { Project } from "../components/PortfolioCard";
 export const projectsData: Project[] = [
     {
         id: 1,
-        title: "Perfil de Viagens",
+        title: "Landing Page - Perfil de Viagens",
         category: "Nível Básico",
         imageUrl: "/images/portfolio/basico/perfilViagem.jpg",
         projectUrl: "https://carolgonzaga.github.io/perfil-de-viagens/",
@@ -11,7 +11,7 @@ export const projectsData: Project[] = [
     },
     {
         id: 2,
-        title: "Portal de Notícias",
+        title: "Landing Page - Portal de Notícias",
         category: "Nível Básico",
         imageUrl: "/images/portfolio/basico/portalNoticias.jpg",
         projectUrl: "https://carolgonzaga.github.io/portal-de-noticias/",
@@ -19,7 +19,7 @@ export const projectsData: Project[] = [
     },
     {
         id: 3,
-        title: "Landing Page Portfólio Dev",
+        title: "Landing Page - Portfólio Dev",
         category: "Nível Básico",
         imageUrl: "/images/portfolio/basico/portDev1.jpg",
         projectUrl: "https://carolgonzaga.github.io/portfolio-dev/",
@@ -27,7 +27,7 @@ export const projectsData: Project[] = [
     },
     {
         id: 4,
-        title: "Formulário Convite",
+        title: "Formulário - Convite",
         category: "Nível Básico",
         imageUrl: "/images/portfolio/basico/formConvite.jpg",
         projectUrl: "https://carolgonzaga.github.io/formulario-de-convite/",
@@ -35,7 +35,7 @@ export const projectsData: Project[] = [
     },
     {
         id: 5,
-        title: "Landing Page Zingen",
+        title: "Landing Page - Produto Zingen",
         category: "Nível Básico",
         imageUrl: "/images/portfolio/basico/lpProduto.jpg",
         projectUrl:
@@ -44,7 +44,7 @@ export const projectsData: Project[] = [
     },
     {
         id: 6,
-        title: "Formulário Matrícula",
+        title: "Formulário - Matrícula",
         category: "Nível Básico",
         imageUrl: "/images/portfolio/basico/formMatricula.jpg",
         projectUrl: "https://carolgonzaga.github.io/formulario-de-matricula/",
@@ -52,7 +52,7 @@ export const projectsData: Project[] = [
     },
     {
         id: 7,
-        title: "Landing Page Snitap",
+        title: "Landing Page - Produto Snitap",
         category: "Nível Básico",
         imageUrl: "/images/portfolio/basico/lpAnimado2.jpg",
         projectUrl: "https://carolgonzaga.github.io/landing-page-animado/",
@@ -60,7 +60,7 @@ export const projectsData: Project[] = [
     },
     {
         id: 8,
-        title: "Landing Page Clube de Assinatura",
+        title: "Landing Page - Clube de Assinatura",
         category: "Nível Básico",
         imageUrl: "/images/portfolio/basico/lpAnimado.jpg",
         projectUrl: "https://carolgonzaga.github.io/lp-clube-de-assinaturas/",
@@ -68,7 +68,7 @@ export const projectsData: Project[] = [
     },
     {
         id: 9,
-        title: "Landing Page Portfólio Dev",
+        title: "Landing Page - Portfólio Dev",
         category: "Nível Básico",
         imageUrl: "/images/portfolio/basico/portDev2.jpg",
         projectUrl: "https://carolgonzaga.github.io/",

@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './PortfolioCard.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
