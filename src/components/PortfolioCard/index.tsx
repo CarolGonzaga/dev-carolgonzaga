@@ -23,7 +23,6 @@ function PortfolioCard({ project }: PortfolioCardProps) {
             <div className={styles.imageWrapper}>
                 <img src={project.imageUrl} alt={`Imagem do projeto ${project.title}`} />
                 <div className={styles.overlay}>
-                    {/* 3. ADICIONADO CONTAINER PARA OS LINKS */}
                     <div className={styles.linksWrapper}>
                         <a href={project.projectUrl} title="Ver projeto" target="_blank" rel="noopener noreferrer" className={styles.link}>
                             <FontAwesomeIcon icon={faEye} />
