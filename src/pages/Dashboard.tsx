@@ -11,7 +11,7 @@ import {
     faUsers, faPuzzlePiece, faArrowsRotate, faRocket, faLaptopCode,
     faDatabase, faCloud, faRobot
 } from '@fortawesome/free-solid-svg-icons';
-import { faHtml5, faJs, faReact, faNodeJs, faPython } from '@fortawesome/free-brands-svg-icons';
+import { faHtml5, faJs, faReact, faNodeJs, faVuejs } from '@fortawesome/free-brands-svg-icons';
 
 import Carousel from '../components/Carousel';
 import Header from '../components/Header';
@@ -24,8 +24,8 @@ const technologies = [
     { name: 'TYPESCRIPT', icon: faCode, percentage: '80%', level: 'Pleno' },
     { name: 'REACT', icon: faReact, percentage: '60%', level: 'Pleno' },
     { name: 'API REST', icon: faServer, percentage: '40%', level: 'Júnior' },
-    { name: 'NODE', icon: faNodeJs, percentage: '30%', level: 'Júnior' },
-    { name: 'PYTHON', icon: faPython, percentage: '30%', level: 'Júnior' }
+    { name: 'NODE', icon: faNodeJs, percentage: '35%', level: 'Júnior' },
+    { name: 'VUE JS', icon: faVuejs, percentage: '30%', level: 'Júnior' }
 ];
 
 const slidesData = [
