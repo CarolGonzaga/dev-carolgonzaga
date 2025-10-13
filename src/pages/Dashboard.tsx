@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { useGitHubData } from '../context/GitHubDataContext';
+import { projectsData } from '../data/projects';
 
 import Chart from 'chart.js/auto';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
@@ -315,7 +316,9 @@ function Dashboard() {
                         </div>
                         <div className="stat-content">
                             <p>Projetos Publicados</p>
-                            <h3 id="stats-projects">--</h3>
+                            <h3 id="stats-projects">
+                                {String(projectsData.length).padStart(2, '0')}
+                            </h3>
                         </div>
                     </div>
                     <div className="stat-horas stat-card">
