@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useMemo } from 'react';
 
 import Header from '../components/Header';
 import CertificateCard from '../components/CertificateCard';
@@ -8,6 +8,19 @@ import { certificatesData, certificateCategories } from '../data/certificates';
 import { badgesData } from '../data/badges';
 
 import styles from '../styles/_certificates.module.scss';
+
+const parseDate = (dateString: string): Date => {
+    const months: Record<string, number> = {
+        'janeiro': 0, 'fevereiro': 1, 'março': 2, 'abril': 3, 'maio': 4, 'junho': 5,
+        'julho': 6, 'agosto': 7, 'setembro': 8, 'outubro': 9, 'novembro': 10, 'dezembro': 11
+    };
+    const parts = dateString.toLowerCase().split(' de ');
+    const month = months[parts[0]];
+    const year = parseInt(parts[1], 10);
+    return new Date(year, month, 1);
+};
+
+const INITIAL_VISIBLE_COUNT = 4;
 
 function Certificates() {
 
@@ -24,48 +37,55 @@ function Certificates() {
         setSelectedCertUrl('');
     };
 
-    const scrollRefs = useRef<Record<string, HTMLDivElement | null>>({});
+    const [visibleCounts, setVisibleCounts] = useState<Record<string, number>>({});
 
-    const handleScroll = (category: string, direction: 'left' | 'right') => {
-        const container = scrollRefs.current[category];
-        if (container) {
-            const scrollAmount = direction === 'left' ? -300 : 300;
-            container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        }
+    const handleLoadMore = (category: string) => {
+        setVisibleCounts(prevCounts => ({
+            ...prevCounts,
+            [category]: (prevCounts[category] || INITIAL_VISIBLE_COUNT) + 4
+        }));
     };
+
+    const sortedCertificates = useMemo(() => {
+        return [...certificatesData].sort((a, b) => {
+            if (a.issueDate.toLowerCase() === 'em andamento') return -1;
+            if (b.issueDate.toLowerCase() === 'em andamento') return 1;
+
+            const dateA = parseDate(a.issueDate);
+            const dateB = parseDate(b.issueDate);
+            return dateB.getTime() - dateA.getTime();
+        });
+    }, []);
 
     return (
         <>
             <Header title="Certificados & Conquistas" />
-
             <div className={styles.certificatesContainer}>
                 {certificateCategories.map(category => {
-                    const certsInCategory = certificatesData.filter(cert => cert.category === category);
-                    const useHorizontalScroll = certsInCategory.length > 3;
+                    const certsInCategory = sortedCertificates.filter(cert => cert.category === category);
+                    const currentVisibleCount = visibleCounts[category] || INITIAL_VISIBLE_COUNT;
+
+                    if (certsInCategory.length === 0) {
+                        return null;
+                    }
 
                     return (
                         <section key={category} className={styles.categorySection}>
                             <h2 className={styles.categoryTitle}>{category}</h2>
-                            {useHorizontalScroll ? (
-                                <div className={styles.horizontalScrollWrapper}>
-                                    <button onClick={() => handleScroll(category, 'left')} className={`${styles.scrollArrow} ${styles.left}`}>‹</button>
-                                    <div
-                                        className={styles.horizontalScrollContent}
-                                        ref={el => { scrollRefs.current[category] = el; }}
-                                    >
-                                        {certsInCategory.map(cert => (
-                                            <div key={cert.id} className={styles.horizontalItem}>
-                                                <CertificateCard certificate={cert} onCardClick={handleOpenModal} />
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <button onClick={() => handleScroll(category, 'right')} className={`${styles.scrollArrow} ${styles.right}`}>›</button>
-                                </div>
-                            ) : (
-                                <div className={styles.certificatesGrid}>
-                                    {certsInCategory.map(cert => (
+
+                            <div className={styles.certificatesGrid}>
+                                {certsInCategory
+                                    .slice(0, currentVisibleCount)
+                                    .map(cert => (
                                         <CertificateCard key={cert.id} certificate={cert} onCardClick={handleOpenModal} />
                                     ))}
+                            </div>
+
+                            {certsInCategory.length > currentVisibleCount && (
+                                <div className={styles.loadMoreWrapper}>
+                                    <button onClick={() => handleLoadMore(category)} className={styles.loadMoreButton}>
+                                        Carregar Mais
+                                    </button>
                                 </div>
                             )}
                         </section>

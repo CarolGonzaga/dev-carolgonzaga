@@ -80,7 +80,7 @@ export const certificatesData: Certificate[] = [
     },
     {
         id: 8,
-        title: "Lógica de programação: mergulhe em programação com JavaScript",
+        title: "Lógica de programação: programação com JavaScript",
         issuer: "Alura",
         year: "2025",
         category: "Desenvolvimento Web",
