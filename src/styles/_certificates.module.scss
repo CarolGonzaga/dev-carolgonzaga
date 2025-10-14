@@ -37,10 +37,70 @@
 
 .badgesGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 2rem;
     justify-items: center;
     padding: 1rem 0;
+}
+
+.horizontalScrollWrapper {
+    position: relative;
+    padding: 0 50px;
+}
+
+.horizontalScrollContent {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.horizontalItem {
+    flex: 0 0 420px;
+    scroll-snap-align: start;
+}
+
+.scrollArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--borda-suave);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 35px;
+    color: var(--texto-principal);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: var(--accent-1);
+        color: #fff;
+    }
+
+    &.left {
+        left: 0;
+    }
+
+    &.right {
+        right: 0;
+    }
+}
+
+[data-theme="dark"] .scrollArrow {
+    background-color: rgba(42, 37, 53, 0.9);
 }
 
 @media (max-width: 749px) {
