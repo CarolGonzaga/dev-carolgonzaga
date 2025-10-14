@@ -6,8 +6,8 @@
 
 .certificatesGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 3rem;
     padding-bottom: 2rem;
 }
 
@@ -46,7 +46,7 @@
 .loadMoreWrapper {
     display: flex;
     justify-content: center;
-    margin-top: 1.5rem; // Espaço acima do botão
+    margin-top: 1rem;
 }
 
 .loadMoreButton {

@@ -5,22 +5,28 @@
     overflow: hidden;
     transition: all 0.3s ease;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     box-shadow: 0 4px 12px rgba(79, 61, 107, 0.08);
+    cursor: pointer;
 
     &:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 20px rgba(79, 61, 107, 0.15);
+
         .imageWrapper .overlay {
             opacity: 1;
+        }
+
+        .imageWrapper img {
+            filter: grayscale(0%);
         }
     }
 }
 
 .imageWrapper {
     position: relative;
-    flex: 0 0 180px;
-    min-height: 160px;
+    width: 100%;
+    padding-top: 75%;
     background-color: var(--fundo-pagina);
 
     img {
@@ -29,8 +35,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        filter: grayscale(90%);
+        object-fit: contain;
+        filter: grayscale(100%);
         transition: filter 0.3s ease;
     }
 }
@@ -119,16 +125,5 @@
     svg {
         color: var(--texto-light);
         font-size: 0.9rem;
-    }
-}
-
-
-@media (max-width: 749px) {
-    .card {
-        flex-direction: column;
-    }
-
-    .imageWrapper {
-        flex-basis: 180px;
     }
 }

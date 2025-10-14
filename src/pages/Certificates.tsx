@@ -20,7 +20,7 @@ const parseDate = (dateString: string): Date => {
     return new Date(year, month, 1);
 };
 
-const INITIAL_VISIBLE_COUNT = 4;
+const INITIAL_VISIBLE_COUNT = 3;
 
 function Certificates() {
 
@@ -42,7 +42,7 @@ function Certificates() {
     const handleLoadMore = (category: string) => {
         setVisibleCounts(prevCounts => ({
             ...prevCounts,
-            [category]: (prevCounts[category] || INITIAL_VISIBLE_COUNT) + 4
+            [category]: (prevCounts[category] || INITIAL_VISIBLE_COUNT) + 3
         }));
     };
 
