@@ -6,5 +6,6 @@ export const badgesData: Badge[] = [
         name: "Google Cloud Computing Foundations",
         issuer: "Google Cloud",
         imageUrl: "/images/badges/googlecloud.png",
+        credentialUrl: "https://www.credly.com/users/ana-caroline-g-acquesta",
     },
 ];

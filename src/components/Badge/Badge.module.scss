@@ -2,8 +2,8 @@
     background-color: var(--fundo-card);
     border-radius: 50%;
     padding: 0.5rem;
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,6 +20,6 @@
     &:hover {
         transform: scale(1.1) translateY(-5px);
         box-shadow: 0 8px 15px rgba(79, 61, 107, 0.15);
-        cursor: help; // Indica que há informação ao passar o mouse
+        cursor: pointer;
     }
 }
