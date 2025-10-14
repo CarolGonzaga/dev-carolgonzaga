@@ -16,24 +16,29 @@ export type Certificate = {
 
 type CertificateCardProps = {
     certificate: Certificate;
+    onCardClick: (imageUrl: string) => void;
 };
 
-function CertificateCard({ certificate }: CertificateCardProps) {
+function CertificateCard({ certificate, onCardClick }: CertificateCardProps) {
     return (
-        <div className={styles.card}>
+        <div className={styles.card} onClick={() => onCardClick(certificate.imageUrl)}>
             <div className={styles.imageWrapper}>
                 <img src={certificate.imageUrl} alt={`Certificado de ${certificate.title}`} />
                 <div className={styles.overlay}>
-                    <a href={certificate.certificateUrl} title="Ver certificado" target="_blank" rel="noopener noreferrer" className={styles.link}>
+                    <div className={styles.link}>
                         <FontAwesomeIcon icon={faEye} />
-                    </a>
+                    </div>
                 </div>
             </div>
 
             <div className={styles.content}>
-                <h3 className={styles.title}>{certificate.title}</h3>
-                <p className={styles.issuer}>{certificate.issuer}</p>
+                <div className={styles.mainInfo}>
+                    <h3 className={styles.title}>{certificate.title}</h3>
+                    <p className={styles.issuer}>{certificate.issuer}</p>
+                </div>
+
                 <div className={styles.divider}></div>
+
                 <div className={styles.details}>
                     <p className={styles.detailItem}>
                         <FontAwesomeIcon icon={faCalendarDay} />

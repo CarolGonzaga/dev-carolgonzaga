@@ -1,11 +1,29 @@
+import { useState } from 'react';
+
 import Header from '../components/Header';
 import CertificateCard from '../components/CertificateCard';
 import Badge from '../components/Badge';
+import Modal from '../components/Modal';
 import { certificatesData, certificateCategories } from '../data/certificates';
 import { badgesData } from '../data/badges';
+
 import styles from '../styles/_certificates.module.scss';
 
 function Certificates() {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedCertUrl, setSelectedCertUrl] = useState('');
+
+    const handleOpenModal = (imageUrl: string) => {
+        setSelectedCertUrl(imageUrl);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setSelectedCertUrl('');
+    };
+
     return (
         <>
             <Header title="Certificados & Conquistas" />
@@ -18,7 +36,11 @@ function Certificates() {
                             {certificatesData
                                 .filter(cert => cert.category === category)
                                 .map(cert => (
-                                    <CertificateCard key={cert.id} certificate={cert} />
+                                    <CertificateCard
+                                        key={cert.id}
+                                        certificate={cert}
+                                        onCardClick={handleOpenModal}
+                                    />
                                 ))}
                         </div>
                     </section>
@@ -33,6 +55,12 @@ function Certificates() {
                     </div>
                 </section>
             </div>
+
+            <Modal
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+                imageUrl={selectedCertUrl}
+            />
         </>
     );
 }
