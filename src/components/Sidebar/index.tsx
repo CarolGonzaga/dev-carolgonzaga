@@ -60,10 +60,10 @@ function Sidebar() {
                     </li>
 
                     <li>
-                        <a href="#certificados" className={styles['nav-link']}>
+                        <NavLink to="/certificados" className={({ isActive }) => isActive ? `${styles['nav-link']} ${styles.active}` : styles['nav-link']}>
                             <FontAwesomeIcon icon={faAward} className={styles.icon} aria-hidden="true" />
                             <span>Certificados</span>
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
 

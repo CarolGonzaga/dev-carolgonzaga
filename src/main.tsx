@@ -14,6 +14,7 @@ import App from './App';
 import Dashboard from './pages/Dashboard';
 import Resumo from './pages/Resumo';
 import Portfolio from './pages/Portfolio';
+import Certificates from './pages/Certificates';
 
 // Configuração do roteador (você já tem isso)
 const router = createBrowserRouter([
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       { path: '/', element: <Dashboard /> },
       { path: '/resumo', element: <Resumo /> },
       { path: '/portfolio', element: <Portfolio /> },
+      { path: '/certificados', element: <Certificates /> },
     ],
   },
 ]);

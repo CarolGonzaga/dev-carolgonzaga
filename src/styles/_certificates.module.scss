@@ -1,0 +1,50 @@
+.certificatesContainer {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 1rem;
+}
+
+.certificatesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+.categorySection {
+    margin-bottom: 3rem;
+}
+
+.categoryTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--texto-principal);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30px;
+        height: 3px;
+        background-color: var(--accent-1);
+        border-radius: 2px;
+    }
+}
+
+.badgesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    padding: 1rem 0;
+}
+
+@media (max-width: 749px) {
+    .certificatesGrid {
+        grid-template-columns: 1fr;
+    }
+}
