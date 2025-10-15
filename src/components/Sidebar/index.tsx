@@ -18,7 +18,13 @@ import { useSidebar } from '../../context/SidebarContext';
 import ThemeToggleButton from '../ThemeToggleButton';
 
 function Sidebar() {
-    const { isOpen, openContactModal, openLogoutModal } = useSidebar()
+    const { isOpen, openContactModal, openLogoutModal, closeSidebar } = useSidebar()
+
+    const handleLinkClick = () => {
+        if (window.innerWidth <= 749) {
+            closeSidebar();
+        }
+    }
 
     return (
         <aside className={`${styles.sidebar} ${isOpen ? styles.active : ''}`}>
@@ -39,28 +45,28 @@ function Sidebar() {
                     <li className={styles['section-title']}>Geral</li>
 
                     <li>
-                        <NavLink to="/" className={({ isActive }) => isActive ? `${styles['nav-link']} ${styles.active}` : styles['nav-link']}>
+                        <NavLink to="/" onClick={handleLinkClick} className={({ isActive }) => isActive ? `${styles['nav-link']} ${styles.active}` : styles['nav-link']}>
                             <FontAwesomeIcon icon={faChartLine} className={styles.icon} aria-hidden="true" />
                             <span>Home</span>
                         </NavLink>
                     </li>
 
                     <li>
-                        <NavLink to="/resumo" className={({ isActive }) => isActive ? `${styles['nav-link']} ${styles.active}` : styles['nav-link']}>
+                        <NavLink to="/resumo" onClick={handleLinkClick} className={({ isActive }) => isActive ? `${styles['nav-link']} ${styles.active}` : styles['nav-link']}>
                             <FontAwesomeIcon icon={faUserTie} className={styles.icon} aria-hidden="true" />
                             <span>Resumo</span>
                         </NavLink>
                     </li>
 
                     <li>
-                        <NavLink to="/portfolio" className={({ isActive }) => isActive ? `${styles['nav-link']} ${styles.active}` : styles['nav-link']}>
+                        <NavLink to="/portfolio" onClick={handleLinkClick} className={({ isActive }) => isActive ? `${styles['nav-link']} ${styles.active}` : styles['nav-link']}>
                             <FontAwesomeIcon icon={faProjectDiagram} className={styles.icon} aria-hidden="true" />
                             <span>Portfólio</span>
                         </NavLink>
                     </li>
 
                     <li>
-                        <NavLink to="/certificados" className={({ isActive }) => isActive ? `${styles['nav-link']} ${styles.active}` : styles['nav-link']}>
+                        <NavLink to="/certificados" onClick={handleLinkClick} className={({ isActive }) => isActive ? `${styles['nav-link']} ${styles.active}` : styles['nav-link']}>
                             <FontAwesomeIcon icon={faAward} className={styles.icon} aria-hidden="true" />
                             <span>Certificados</span>
                         </NavLink>
@@ -77,6 +83,7 @@ function Sidebar() {
                             onClick={(e) => {
                                 e.preventDefault();
                                 openContactModal();
+                                handleLinkClick();
                             }}
                         >
                             <FontAwesomeIcon icon={faEnvelope} className={styles.icon} aria-hidden="true" />
