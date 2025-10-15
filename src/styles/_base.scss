@@ -8,6 +8,31 @@
 
 html {
     font-size: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--barra-rolagem);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--barra-rolagem);
+    border-radius: 4px;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent-color-hover);
+}
+
+::-webkit-scrollbar-button {
+    display: none;
 }
 
 body {
@@ -57,6 +82,7 @@ ul {
     --fundo-sidebar: #{$light-fundo-sidebar};
     --fundo-card: #{$light-fundo-card};
     --sombra-card: #{$light-sombra-card};
+    --barra-rolagem: #{$light-barra-rolagem};
 
     --texto-principal: #{$light-texto-principal};
     --texto-secundario: #{$light-texto-secundario};
@@ -75,7 +101,7 @@ ul {
     --icon-color: #{$light-icon-color};
 
     --chart-grid-color: #{$light-chart-grid-color};
-    --chart-text-color: var(--texto-secundario); 
+    --chart-text-color: var(--texto-secundario);
 
     --font-main: #{$font-main};
     --font-mono: #{$font-mono};
@@ -98,6 +124,7 @@ ul {
     --fundo-sidebar: #{$dark-fundo-sidebar};
     --fundo-card: #{$dark-fundo-card};
     --sombra-card: #{$dark-sombra-card};
+    --barra-rolagem: #{$dark-barra-rolagem};
 
     --texto-principal: #{$dark-texto-principal};
     --texto-secundario: #{$dark-texto-secundario};
