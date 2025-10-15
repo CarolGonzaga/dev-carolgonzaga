@@ -251,3 +251,38 @@
         margin-bottom: 3rem;
     }
 }
+
+@media (max-height: 900px) and (min-width: 1199px) {
+    .languages-card {
+        display: grid;
+        grid-template-columns: auto 1fr; // Duas colunas: uma para o título, outra para o gráfico
+        align-items: center; // Alinha título e gráfico verticalmente no centro
+        gap: 1.5rem; // Espaço entre o título e o gráfico
+        padding: 1.5rem;
+
+        h3 {
+            margin-bottom: 0;
+            padding-bottom: 0.5rem;
+            align-self: start;
+        }
+
+        .gauge-container {
+            padding-bottom: 0;
+            height: auto;
+            justify-content: center;
+        }
+
+        .gauge-chart-wrapper {
+            width: 200px;
+            height: 120px;
+        }
+
+        .gauge-guide {
+            top: 25px;
+        }
+
+        .gauge-arrow {
+            bottom: 12px;
+        }
+    }
+}
