@@ -25,28 +25,6 @@
 .languages-card {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
-
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.5rem 2rem;
-
-    h3 {
-        margin: 0;
-        padding: 0;
-        justify-self: start;
-
-        &::after {
-            display: none;
-        }
-    }
-
-    .gauge-container {
-        padding: 0;
-        height: auto;
-        justify-self: end;
-    }
 }
 
 .side-column-bottom {
@@ -271,11 +249,5 @@
     .gauge-text {
         font-size: 0.8rem;
         margin-bottom: 3rem;
-    }
-}
-
-@media (max-width: 500px) {
-    .languages-card-content {
-        flex-direction: column;
     }
 }
