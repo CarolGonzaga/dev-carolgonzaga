@@ -1,11 +1,57 @@
+// /api/github-data.ts
+
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_USERNAME = "CarolGonzaga";
 
 const headers = {
-    Authorization: `token ${GITHUB_TOKEN}`,
+    Authorization: `bearer ${GITHUB_TOKEN}`,
     "User-Agent": "CarolGonzaga-Portfolio-API",
+};
+
+const graphqlQuery = {
+    query: `
+      query($username: String!) {
+        user(login: $username) {
+          id
+          publicRepos: repositories(isFork: false, privacy: PUBLIC) {
+            totalCount
+          }
+          oldestRepo: repositories(first: 1, orderBy: {field: CREATED_AT, direction: ASC}) {
+            nodes {
+              createdAt
+            }
+          }
+          contributionsCollection {
+            contributionCalendar {
+              totalContributions
+              weeks {
+                contributionDays {
+                  contributionCount
+                  date
+                }
+              }
+            }
+          }
+          repositories(first: 100, ownerAffiliations: OWNER, orderBy: {field: STARGAZERS, direction: DESC}) {
+            nodes {
+              languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+                edges {
+                  size
+                  node {
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+    variables: {
+        username: GITHUB_USERNAME,
+    },
 };
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -16,55 +62,59 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     try {
-        // Vamos buscar os dados principais em paralelo
-        const [userResponse, reposResponse] = await Promise.all([
-            fetch(`https://api.github.com/users/${GITHUB_USERNAME}`, {
-                headers,
-            }),
-            fetch(
-                `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=created&direction=asc&per_page=100`,
-                { headers }
-            ),
-        ]);
-
-        if (!userResponse.ok) {
-            throw new Error(
-                `Erro na API do GitHub ao buscar usuário: ${userResponse.statusText}`
-            );
-        }
-        if (!reposResponse.ok) {
-            throw new Error(
-                `Erro na API do GitHub ao buscar repositórios: ${reposResponse.statusText}`
-            );
-        }
-
-        const userData = await userResponse.json();
-        const reposData = await reposResponse.json();
-
-        // Extrai a data do repositório mais antigo
-        const oldestRepoDate =
-            reposData.length > 0 ? reposData[0].created_at : null;
-
-        // Processa as linguagens de forma mais simples
-        const languages: Record<string, number> = {};
-        reposData.forEach((repo: any) => {
-            if (repo.language) {
-                languages[repo.language] = (languages[repo.language] || 0) + 1;
-            }
+        const response = await fetch("https://api.github.com/graphql", {
+            method: "POST",
+            headers,
+            body: JSON.stringify(graphqlQuery),
         });
+
+        if (!response.ok) {
+            throw new Error(
+                `Erro na API GraphQL do GitHub: ${response.statusText}`
+            );
+        }
+
+        const jsonResponse = await response.json();
+        const userData = jsonResponse.data.user;
+
+        const languages: Record<string, number> = {};
+        userData.repositories.nodes.forEach((repo: any) => {
+            repo.languages.edges.forEach((edge: any) => {
+                languages[edge.node.name] =
+                    (languages[edge.node.name] || 0) + edge.size;
+            });
+        });
+
+        const commitData: { week: number; total: number }[] = [];
+        userData.contributionsCollection.contributionCalendar.weeks.forEach(
+            (week: any) => {
+                let weekTotal = 0;
+                let weekStartDate = 0;
+                if (week.contributionDays.length > 0) {
+                    weekStartDate =
+                        new Date(week.contributionDays[0].date).getTime() /
+                        1000;
+                }
+                week.contributionDays.forEach((day: any) => {
+                    weekTotal += day.contributionCount;
+                });
+                if (weekStartDate > 0) {
+                    commitData.push({ week: weekStartDate, total: weekTotal });
+                }
+            }
+        );
 
         const responseData = {
             stats: {
-                public_repos: userData.public_repos,
-                oldest_repo_date: oldestRepoDate,
+                public_repos: userData.publicRepos.totalCount,
+                oldest_repo_date:
+                    userData.oldestRepo.nodes[0]?.createdAt || null,
             },
             languages: languages,
-            // Temporariamente removemos a busca de commits que é a mais problemática
-            commits: [],
+            commits: [commitData],
         };
 
-        // Define o cache header
-        res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate"); // Cache de 1 hora
+        res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate");
         return res.status(200).json(responseData);
     } catch (error: any) {
         console.error("Erro na Vercel Function:", error);
