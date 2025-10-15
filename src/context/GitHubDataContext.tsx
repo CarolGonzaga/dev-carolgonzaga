@@ -1,33 +1,28 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import type { ReactNode } from 'react';
 
-// Define a estrutura dos dados que vamos armazenar
 interface GitHubData {
     stats: any;
     languages: any;
     commits: any;
 }
 
-// Define o que o nosso contexto irá fornecer aos componentes
 interface GitHubContextType {
     data: GitHubData | null;
     isLoading: boolean;
     error: string | null;
 }
 
-// Cria o Contexto
 const GitHubDataContext = createContext<GitHubContextType>({
     data: null,
     isLoading: true,
     error: null,
 });
 
-// Hook customizado para facilitar o uso do contexto
 export const useGitHubData = () => {
     return useContext(GitHubDataContext);
 };
 
-// Componente "Provedor" que vai conter a lógica
 export const GitHubDataProvider = ({ children }: { children: ReactNode }) => {
     const [data, setData] = useState<GitHubData | null>(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -36,21 +31,18 @@ export const GitHubDataProvider = ({ children }: { children: ReactNode }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // --- INÍCIO DA LÓGICA DE CACHE ---
                 const cache = localStorage.getItem('githubDataCache');
                 const now = new Date().getTime();
-                const ONE_HOUR = 60 * 60 * 1000; // 1 hora em milissegundos
+                const ONE_HOUR = 60 * 60 * 1000;
 
                 if (cache) {
                     const { timestamp, cachedData } = JSON.parse(cache);
-                    // Se o cache existe e tem menos de 1 hora, use-o
                     if (now - timestamp < ONE_HOUR) {
                         setData(cachedData);
                         setIsLoading(false);
-                        return; // Interrompe a função aqui para não buscar na API
+                        return;
                     }
                 }
-                // --- FIM DA LÓGICA DE CACHE ---
 
                 const response = await fetch('/api/github-data');
                 if (!response.ok) {
@@ -66,7 +58,6 @@ export const GitHubDataProvider = ({ children }: { children: ReactNode }) => {
 
                 setData(newData);
 
-                // Salva os novos dados e o timestamp no localStorage
                 localStorage.setItem('githubDataCache', JSON.stringify({
                     timestamp: now,
                     cachedData: newData,
@@ -81,7 +72,7 @@ export const GitHubDataProvider = ({ children }: { children: ReactNode }) => {
         };
 
         fetchData();
-    }, []); // O array de dependências vazio [] garante que esta lógica rode apenas uma vez.
+    }, []);
 
     const value = { data, isLoading, error };
 

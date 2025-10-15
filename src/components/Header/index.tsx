@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Header.module.scss';
 import logoImg from '../../assets/images/logo-carol-gonzaga.png';
 import SidebarToggle from '../SidebarToggle';

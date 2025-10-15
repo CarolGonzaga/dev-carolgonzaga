@@ -1,11 +1,4 @@
-// ===============================================
-//   1. IMPORTAÇÃO DE FONTES
-// ===============================================
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400&display=swap");
-
-// ===============================================
-//   2. RESET E ESTILOS GLOBAIS
-// ===============================================
 
 * {
     margin: 0;
@@ -36,7 +29,6 @@ ul {
     list-style: none;
 }
 
-/* Classe utilitária para ocultar elementos de forma acessível */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -49,41 +41,30 @@ ul {
     border-width: 0;
 }
 
-// ===============================================
-//   3. DEFINIÇÃO DAS VARIÁVEIS CSS (TEMA)
-// ===============================================
-
-/* Tema claro (padrão) */
 :root {
-    // Cores principais
     --accent-1: #{$light-accent-1};
     --accent-2: #{$light-accent-2};
     --accent-color-hover: #{$light-accent-hover};
     --accent-color-light: #{$light-accent-light};
     --gradient-logo: #{$light-gradient-logo};
 
-    // Ícones de stats
     --stat-icon-bg-1: #{$light-stat-icon-bg-1};
     --stat-icon-color-1: #{$light-stat-icon-color-1};
     --stat-icon-bg-2: #{$light-stat-icon-bg-2};
     --stat-icon-color-2: #{$light-stat-icon-color-2};
 
-    // Fundos e estrutura
     --fundo-pagina: #{$light-fundo-pagina};
     --fundo-sidebar: #{$light-fundo-sidebar};
     --fundo-card: #{$light-fundo-card};
     --sombra-card: #{$light-sombra-card};
 
-    // Textos
     --texto-principal: #{$light-texto-principal};
     --texto-secundario: #{$light-texto-secundario};
     --texto-light: #{$light-texto-light};
 
-    // Bordas
     --borda-suave: #{$light-borda-suave};
-    --border: #{$light-border}; // Adicionada variável 'border' que estava no seu CSS
+    --border: #{$light-border};
 
-    // Tags
     --tag-senior: #{$light-tag-senior};
     --tag-senior-bg: #{$light-tag-senior-bg};
     --tag-pleno: #{$light-tag-pleno};
@@ -91,51 +72,39 @@ ul {
     --tag-junior: #{$light-tag-junior};
     --tag-junior-bg: #{$light-tag-junior-bg};
 
-    // Ícones
     --icon-color: #{$light-icon-color};
 
-    // Gráficos
     --chart-grid-color: #{$light-chart-grid-color};
-    --chart-text-color: var(
-        --texto-secundario
-    ); // Mantém a referência pois o valor é o mesmo
+    --chart-text-color: var(--texto-secundario); 
 
-    // Tipografia e Tamanhos
     --font-main: #{$font-main};
     --font-mono: #{$font-mono};
     --dashboard-header-h: #{$dashboard-header-h};
     --ease: #{$ease};
 }
 
-/* Tema escuro */
 [data-theme="dark"] {
-    // Cores principais
     --accent-1: #{$dark-accent-1};
     --accent-2: #{$dark-accent-2};
     --accent-color-hover: #{$dark-accent-hover};
     --accent-color-light: #{$dark-accent-light};
 
-    // Ícones de stats
     --stat-icon-bg-1: #{$dark-stat-icon-bg-1};
     --stat-icon-color-1: #{$dark-stat-icon-color-1};
     --stat-icon-bg-2: #{$dark-stat-icon-bg-2};
     --stat-icon-color-2: #{$dark-stat-icon-color-2};
 
-    // Fundos e estrutura
     --fundo-pagina: #{$dark-fundo-pagina};
     --fundo-sidebar: #{$dark-fundo-sidebar};
     --fundo-card: #{$dark-fundo-card};
     --sombra-card: #{$dark-sombra-card};
 
-    // Textos
     --texto-principal: #{$dark-texto-principal};
     --texto-secundario: #{$dark-texto-secundario};
     --texto-light: #{$dark-texto-light};
 
-    // Bordas
     --borda-suave: #{$dark-borda-suave};
 
-    // Tags
     --tag-senior: #{$dark-tag-senior};
     --tag-senior-bg: #{$dark-tag-senior-bg};
     --tag-pleno: #{$dark-tag-pleno};
@@ -143,10 +112,8 @@ ul {
     --tag-junior: #{$dark-tag-junior};
     --tag-junior-bg: #{$dark-tag-junior-bg};
 
-    // Ícones
     --icon-color: #{$dark-icon-color};
 
-    // Gráficos
     --chart-grid-color: #{$dark-chart-grid-color};
     --chart-text-color: var(--texto-secundario);
 }

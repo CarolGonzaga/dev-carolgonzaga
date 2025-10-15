@@ -1,16 +1,8 @@
-// ===============================================
-//   1. ESTRUTURA GERAL DO DASHBOARD
-// ===============================================
-
 .dashboard-container {
     display: grid;
     grid-template-columns: 260px 1fr;
     min-height: 100vh;
 }
-
-// ===============================================
-//   3. CONTEÚDO PRINCIPAL (MAIN)
-// ===============================================
 
 .main-content {
     display: flex;
@@ -20,10 +12,6 @@
     box-sizing: border-box;
     overflow: hidden;
 }
-
-// ===============================================
-//   4. GRID PRINCIPAL DO DASHBOARD
-// ===============================================
 
 .main-dashboard-grid {
     display: grid;
@@ -38,7 +26,6 @@
         min-height: 0;
     }
 
-    // --- POSICIONAMENTO DOS CARDS NO GRID ---
     > .stat-cards-group {
         grid-column: 1 / 4;
         grid-row: 1 / 1;

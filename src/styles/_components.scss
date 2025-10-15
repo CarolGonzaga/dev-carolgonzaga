@@ -1,7 +1,3 @@
-// ===============================================
-//   1. CARDS (Base e Estilos Gerais)
-// ===============================================
-
 .card,
 .stat-card {
     background: var(--fundo-card);
@@ -39,10 +35,6 @@
         }
     }
 }
-
-// ===============================================
-//   2. STAT CARDS (Cards de Estatísticas)
-// ===============================================
 
 .stat-cards-group {
     display: flex;
@@ -120,10 +112,6 @@
     }
 }
 
-// ===============================================
-//   3. CHART CARDS (Gráficos)
-// ===============================================
-
 .chart-container {
     width: 100%;
     height: 100%;
@@ -161,10 +149,6 @@
         flex-grow: 0;
     }
 }
-
-// ===============================================
-//   4. SKILLS CARDS (Tecnologias e Soft Skills)
-// ===============================================
 
 .technologies-card {
     backdrop-filter: blur(4px);
@@ -280,10 +264,6 @@
     }
 }
 
-// ===============================================
-//   5. CAROUSEL CARD (Destaques)
-// ===============================================
-
 .carousel-card {
     position: relative;
 
@@ -361,10 +341,6 @@
     }
 }
 
-// ===============================================
-//   6. BOTÕES (Sidebar e Menu)
-// ===============================================
-
 .btn-logout {
     display: flex;
     align-items: center;
@@ -437,7 +413,6 @@
     }
 }
 
-// Sobrescritas de tema para o botão de tema
 [data-theme="dark"] {
     .theme-toggle-btn {
         box-shadow: 4px 4px 8px #1a1721, -4px -4px 8px #2c2737;
@@ -455,9 +430,6 @@
     }
 }
 
-/* ===============================================
-   COPYRIGHT
-   =============================================== */
 .copyright-footer {
     font-size: 0.8rem;
     color: var(--texto-light);
@@ -465,11 +437,6 @@
     margin-top: 0.5rem;
 }
 
-/* =======================================================================
-   MENU HAMBURGUER
-   ======================================================================= */
-
-/* Oculto em telas grandes */
 .sidebar-toggle {
     display: none;
 }
