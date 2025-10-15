@@ -3,19 +3,26 @@ import React, { createContext, useState, useContext } from 'react';
 interface SidebarContextType {
     isOpen: boolean;
     toggleSidebar: () => void;
+    isContactModalOpen: boolean;
+    openContactModal: () => void;
+    closeContactModal: () => void;
 }
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isContactModalOpen, setContactModalOpen] = useState(false);
 
-    const toggleSidebar = () => {
-        setIsOpen(prev => !prev);
-    };
+    const toggleSidebar = () => setIsOpen(prev => !prev);
+    const openContactModal = () => setContactModalOpen(true);
+    const closeContactModal = () => setContactModalOpen(false);
 
     return (
-        <SidebarContext.Provider value={{ isOpen, toggleSidebar }}>
+        <SidebarContext.Provider value={{
+            isOpen, toggleSidebar,
+            isContactModalOpen, openContactModal, closeContactModal
+        }}>
             {children}
         </SidebarContext.Provider>
     );

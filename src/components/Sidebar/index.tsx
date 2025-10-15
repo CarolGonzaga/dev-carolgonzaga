@@ -18,7 +18,7 @@ import { useSidebar } from '../../context/SidebarContext';
 import ThemeToggleButton from '../ThemeToggleButton';
 
 function Sidebar() {
-    const { isOpen } = useSidebar();
+    const { isOpen, openContactModal } = useSidebar()
 
     return (
         <aside className={`${styles.sidebar} ${isOpen ? styles.active : ''}`}>
@@ -71,7 +71,14 @@ function Sidebar() {
                     <li className={styles['section-title']}>Extras</li>
 
                     <li>
-                        <a href="#contato" className={styles['nav-link']}>
+                        <a
+                            href="#"
+                            className={styles['nav-link']}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                openContactModal();
+                            }}
+                        >
                             <FontAwesomeIcon icon={faEnvelope} className={styles.icon} aria-hidden="true" />
                             <span>Contato</span>
                         </a>

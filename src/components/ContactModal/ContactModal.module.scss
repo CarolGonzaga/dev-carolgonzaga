@@ -1,0 +1,335 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    backdrop-filter: blur(5px);
+    padding: 1rem;
+}
+
+.modalContent {
+    position: relative;
+    background: var(--fundo-card);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.closeButton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: var(--texto-light);
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 10;
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: var(--accent-1);
+        transform: scale(1.2);
+    }
+}
+
+.contactModalGrid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    height: 100%;
+    width: 100%;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow: hidden;
+    }
+}
+
+.infoPanel {
+    background: var(--fundo-pagina);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+    position: relative;
+    transition: max-height 0.5s ease-in-out;
+
+    .profileInfo {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        margin-bottom: 2.5rem;
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-1);
+            margin-bottom: 1rem;
+        }
+        h3 {
+            color: var(--texto-principal);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        p {
+            color: var(--texto-secundario);
+            font-size: 0.9rem;
+        }
+    }
+
+    .contactList {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        list-style: none;
+        width: 100%;
+        margin-bottom: 2rem;
+        flex-grow: 1;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+
+            @media (max-width: 768px) {
+                gap: 1rem;
+            }
+        }
+
+        .contactIconWrapper {
+            background: var(--accent-color-light);
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contactIcon {
+            color: var(--accent-1);
+            font-size: 1.5rem;
+        }
+
+        .contactDetails {
+            display: flex;
+            flex-direction: column;
+
+            span {
+                text-transform: uppercase;
+                font-size: 0.8rem;
+                color: var(--texto-light);
+                font-weight: 500;
+            }
+            p {
+                margin: 0;
+                font-size: 1.2rem;
+                color: var(--texto-principal);
+                font-weight: 400;
+
+                @media (max-width: 768px) {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    .socialBar {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--borda-suave);
+
+        a {
+            font-size: 1.6rem;
+            color: var(--texto-light);
+            transition: color 0.3s ease, transform 0.3s ease;
+            &:hover {
+                color: var(--accent-1);
+                transform: translateY(-3px);
+            }
+        }
+    }
+}
+
+.infoToggle {
+    display: none;
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: var(--fundo-card);
+    border: 1px solid var(--borda-suave);
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    color: var(--texto-principal);
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.3s ease;
+
+    svg {
+        transition: transform 0.3s ease;
+    }
+}
+
+.formPanel {
+    padding: 2.5rem;
+    overflow-y: auto;
+}
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+
+    .formGroup {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            font-size: 0.9rem;
+            color: var(--texto-secundario);
+            margin-bottom: 0.5rem;
+        }
+
+        input,
+        textarea {
+            background-color: var(--fundo-pagina);
+            border: 1px solid var(--borda-suave);
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            color: var(--texto-principal);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+
+            &:focus {
+                outline: none;
+                border-color: var(--accent-1);
+                box-shadow: 0 0 0 3px rgba(202, 67, 113, 0.2);
+            }
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    }
+
+    button {
+        background-color: var(--accent-1);
+        border: 2px solid var(--accent-1);
+        color: #fff;
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+
+        &:hover:not(:disabled) {
+            background-color: var(--accent-color-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(202, 67, 113, 0.4);
+        }
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    }
+
+    .errorMessage {
+        color: #ff6b6b;
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 1rem;
+    }
+}
+
+.statusMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    padding: 2rem;
+    h3 {
+        color: var(--accent-1);
+        font-size: 1.8rem;
+    }
+    p {
+        color: var(--texto-secundario);
+    }
+    button {
+        background-color: transparent;
+        border: 2px solid var(--accent-1);
+        color: var(--accent-1);
+        padding: 0.6rem 1.5rem;
+        margin-top: 1.5rem;
+        border-radius: 50px;
+        cursor: pointer;
+        &:hover {
+            background-color: var(--accent-1);
+            color: #fff;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .modalContent {
+        height: calc(100% - 2rem);
+    }
+
+    .contactModalGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .infoPanel {
+        max-height: 180px;
+        overflow: hidden;
+        border-bottom: 1px solid var(--borda-suave);
+        flex-shrink: 0;
+    }
+
+    .infoToggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .infoPanelExpanded {
+        max-height: 600px;
+
+        .infoToggle svg {
+            transform: rotate(180deg);
+        }
+    }
+
+    .formPanel {
+        flex-grow: 1;
+        min-height: 0;
+    }
+}
