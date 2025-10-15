@@ -3,6 +3,8 @@ import Chart from 'chart.js/auto';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 import Header from '../components/Header';
+import { experienceData } from '../data/experience';
+import { educationData } from '../data/education';
 
 Chart.register(ChartDataLabels);
 
@@ -59,11 +61,10 @@ function Resumo() {
         });
     }, [proficiencyValue]);
 
-
-
+    const formacaoItems = educationData.filter(item => item.category === 'Formação');
+    const cursoItems = educationData.filter(item => item.category === 'Curso');
 
     return (
-
         <>
             <Header title="Resumo" />
 
@@ -82,57 +83,18 @@ function Resumo() {
                     <h3>Experiência Profissional</h3>
                     <div className="experience-list">
                         <div className="experience-scroll-content">
-                            <div className="experience-item">
-                                <span className="date">2024 - Atual</span>
-                                <h4 className="title">Desenvolvedora Front End</h4>
-                                <p className="company">Projetos Pessoais e Freelance</p>
-                                <ul className="details">
-                                    <li>Configuração e gerenciamento de ambientes de desenvolvimento estáveis para
-                                        projetos web.</li>
-                                    <li>Desenvolvimento de interfaces responsivas e interativas usando React.js, Vue.js e
-                                        bibliotecas associadas.</li>
-                                    <li> Implementação de funcionalidades com Next.js e Vue Router, integrando APIs externas
-                                        para ampliar funcionalidades.</li>
-                                    <li>Utilização de boas práticas de desenvolvimento, como versionamento com Git e uso de
-                                        styled-components para estilização.</li>
-                                    <li>Organização de arquivos e documentação do código para garantir qualidade e facilitar
-                                        manutenção.</li>
-                                    <li> Implantação de aplicações em ambientes de produção com foco em performance e
-                                        disponibilidade.</li>
-                                </ul>
-                            </div>
-
-                            <div className="experience-item">
-                                <span className="date">2017 - 2024</span>
-                                <h4 className="title">Sócia Proprietária</h4>
-                                <p className="company">Lima Limão Baby Store Ltda</p>
-                                <ul className="details">
-                                    <li>Gerenciei o e-commerce, incluindo controle de pedidos, estoque e criação de campanhas digitais. </li>
-                                    <li>Desenvolvi estratégias para aumento de tráfego orgânico no site e conversão em
-                                        vendas. </li>
-                                </ul>
-                            </div>
-
-                            <div className="experience-item">
-                                <span className="date">2010 - 2016</span>
-                                <h4 className="title">Sócia Proprietária</h4>
-                                <p className="company">Baby Center Comércio de Fraldas Ltda</p>
-                                <ul className="details">
-                                    <li>Liderava toda a operação do site e loja virtual.</li>
-                                    <li>Integrei tecnologias para automatizar processos e otimizar vendas.</li>
-                                </ul>
-                            </div>
-
-                            <div className="experience-item">
-                                <span className="date">2009 - 2010</span>
-                                <h4 className="title">Auxiliar de Loja</h4>
-                                <p className="company">União Pereira Assistência Técnica</p>
-                                <ul className="details">
-                                    <li>Prestava suporte técnico básico, realizava orçamentos e atendia clientes no ponto de
-                                        venda.</li>
-                                    <li>Assistência técnica domiciliar.</li>
-                                </ul>
-                            </div>
+                            {experienceData.map((item) => (
+                                <div className="experience-item" key={item.id}>
+                                    <span className="date">{item.date}</span>
+                                    <h4 className="title">{item.title}</h4>
+                                    <p className="company">{item.company}</p>
+                                    <ul className="details">
+                                        {item.details.map((detail, index) => (
+                                            <li key={index}>{detail}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -141,16 +103,13 @@ function Resumo() {
                 <div className="card education-card">
                     <h3>Formação</h3>
                     <div className="education-list">
-                        <div className="education-item">
-                            <span className="date">2025 - 2026 | Pós Graduação</span>
-                            <h4 className="title">Desenvolvimento Full Stack</h4>
-                            <p className="institution">FIAP</p>
-                        </div>
-                        <div className="education-item">
-                            <span className="date">2022 - 2024 | Graduação</span>
-                            <h4 className="title">Sistemas para Internet</h4>
-                            <p className="institution">SENAC</p>
-                        </div>
+                        {formacaoItems.map(item => (
+                            <div className="education-item" key={item.id}>
+                                <span className="date">{item.date}</span>
+                                <h4 className="title">{item.title}</h4>
+                                <p className="institution">{item.institution}</p>
+                            </div>
+                        ))}
                     </div>
 
                     <div className="card-divider"></div>
@@ -158,21 +117,13 @@ function Resumo() {
                     <div className="courses-card">
                         <h3>Cursos</h3>
                         <div className="education-list">
-                            <div className="education-item">
-                                <span className="date">2023 - 2024</span>
-                                <h4 className="title">FrontEnd Master</h4>
-                                <p className="institution">DevSamurai</p>
-                            </div>
-                            <div className="education-item">
-                                <span className="date">2007 - 2007</span>
-                                <h4 className="title">Montagem e Manutenção de Micros</h4>
-                                <p className="institution">SENAI</p>
-                            </div>
-                            <div className="education-item">
-                                <span className="date">2003 - 2007</span>
-                                <h4 className="title">Técnico em Computação Jr</h4>
-                                <p className="institution">CEDASPY</p>
-                            </div>
+                            {cursoItems.map(item => (
+                                <div className="education-item" key={item.id}>
+                                    <span className="date">{item.date}</span>
+                                    <h4 className="title">{item.title}</h4>
+                                    <p className="institution">{item.institution}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
