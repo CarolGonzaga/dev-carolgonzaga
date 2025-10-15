@@ -180,30 +180,29 @@ function Resumo() {
                 <div className="card languages-card">
                     <h3>Inglês</h3>
                     <div className="gauge-container">
-                        <div className="gauge-chart-wrapper">
-                            <canvas ref={gaugeChartRef}></canvas>
-
-                            <svg className="gauge-guide" viewBox="0 0 220 120" preserveAspectRatio="xMidYMid meet">
-                                <path
-                                    className="gauge-guide-arc"
-                                    d="M 20 100 A 90 90 0 0 1 200 100"
-                                    fill="none"
-                                />
-                            </svg>
-
-                            <div
-                                className="gauge-arrow-wrapper"
-                                style={{ transform: `rotate(${angle}deg)` }}
-                            >
-                                <div className="gauge-arrow"></div>
-                            </div>
-
-                            <div className="gauge-label">
-                                <span className="gauge-value">
-                                    {proficiencyValue}
-                                    <span className="percent-sign">%</span>
-                                </span>
-                                <span className="gauge-text">{proficiencyLabel}</span>
+                        <div className="gauge-container">
+                            <div className="gauge-chart-wrapper">
+                                <canvas ref={gaugeChartRef}></canvas>
+                                <svg className="gauge-guide" viewBox="0 0 220 120" preserveAspectRatio="xMidYMid meet">
+                                    <path
+                                        className="gauge-guide-arc"
+                                        d="M 20 100 A 90 90 0 0 1 200 100"
+                                        fill="none"
+                                    />
+                                </svg>
+                                <div
+                                    className="gauge-arrow-wrapper"
+                                    style={{ transform: `rotate(${angle}deg)` }}
+                                >
+                                    <div className="gauge-arrow"></div>
+                                </div>
+                                <div className="gauge-label">
+                                    <span className="gauge-value">
+                                        {proficiencyValue}
+                                        <span className="percent-sign">%</span>
+                                    </span>
+                                    <span className="gauge-text">{proficiencyLabel}</span>
+                                </div>
                             </div>
                         </div>
                     </div>

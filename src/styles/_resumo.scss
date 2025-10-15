@@ -25,6 +25,23 @@
 .languages-card {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
+    justify-content: center;
+}
+
+.languages-card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    gap: 1.5rem;
+
+    h3 {
+        margin: 0;
+        padding: 0;
+        &::after {
+            display: none;
+        }
+    }
 }
 
 .side-column-bottom {
@@ -249,5 +266,11 @@
     .gauge-text {
         font-size: 0.8rem;
         margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .languages-card-content {
+        flex-direction: column;
     }
 }
