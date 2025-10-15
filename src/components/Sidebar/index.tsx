@@ -18,7 +18,7 @@ import { useSidebar } from '../../context/SidebarContext';
 import ThemeToggleButton from '../ThemeToggleButton';
 
 function Sidebar() {
-    const { isOpen, openContactModal } = useSidebar()
+    const { isOpen, openContactModal, openLogoutModal } = useSidebar()
 
     return (
         <aside className={`${styles.sidebar} ${isOpen ? styles.active : ''}`}>
@@ -95,7 +95,9 @@ function Sidebar() {
 
             <div className={styles['sidebar-footer']}>
                 <div className={styles['footer-actions']}>
-                    <button className={styles['btn-logout']} onClick={() => window.location.href = 'logout.html'}
+                    <button
+                        className={styles['btn-logout']}
+                        onClick={openLogoutModal}
                         aria-label="Sair do sistema">
                         <FontAwesomeIcon icon={faRightFromBracket} className={styles.icon} aria-hidden="true" />
                         <span>Sair</span>

@@ -13,6 +13,7 @@ import Dashboard from './pages/Dashboard';
 import Resumo from './pages/Resumo';
 import Portfolio from './pages/Portfolio';
 import Certificates from './pages/Certificates';
+import Logout from './pages/Logout';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: '/certificados', element: <Certificates /> },
     ],
   },
+  { path: '/logout', element: <Logout /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

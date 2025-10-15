@@ -1,0 +1,100 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    backdrop-filter: blur(5px);
+}
+
+.modalContent {
+    position: relative;
+    background: var(--fundo-card);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    border-top: 4px solid var(--accent-1);
+
+    // As regras agora estão aninhadas aqui dentro
+    h3 {
+        font-size: 1.8rem;
+        color: var(--texto-principal);
+        margin: 0 0 0.5rem 0;
+    }
+
+    p {
+        color: var(--texto-secundario);
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: var(--texto-light);
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: var(--accent-1);
+        transform: scale(1.2);
+    }
+}
+
+.iconWrapper {
+    font-size: 3rem;
+    color: var(--accent-1);
+    margin-bottom: 1rem;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+
+    button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        width: 120px;
+    }
+
+    .cancelButton {
+        background-color: transparent;
+        border-color: var(--borda-suave);
+        color: var(--texto-secundario);
+
+        &:hover {
+            background-color: var(--fundo-pagina);
+            border-color: var(--texto-light);
+        }
+    }
+
+    .confirmButton {
+        background-color: var(--accent-1);
+        border-color: var(--accent-1);
+        color: #fff;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(202, 67, 113, 0.4);
+        }
+    }
+}
