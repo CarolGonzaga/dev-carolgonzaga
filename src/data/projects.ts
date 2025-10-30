@@ -243,7 +243,7 @@ export const projectsData: Project[] = [
         title: "Estante de Livros",
         category: "Nível Avançado",
         imageUrl: "/images/portfolio/avancado/estanteLivros.jpg",
-        projectUrl: "",
+        projectUrl: "https://projeto-audiomante.vercel.app/",
         repoUrl: "https://github.com/CarolGonzaga/projeto-audiomante",
     },
 ];
