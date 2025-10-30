@@ -238,6 +238,14 @@ export const projectsData: Project[] = [
         projectUrl: "https://projeto-criptmojis.vercel.app/",
         repoUrl: "https://github.com/CarolGonzaga/projeto-criptmojis",
     },
+    {
+        id: 30,
+        title: "Estante de Livros",
+        category: "Nível Avançado",
+        imageUrl: "/images/portfolio/avancado/estanteLivros.jpg",
+        projectUrl: "",
+        repoUrl: "https://github.com/CarolGonzaga/projeto-audiomante",
+    },
 ];
 
 export const filters = [
