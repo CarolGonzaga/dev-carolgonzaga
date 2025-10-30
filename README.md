@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/logo-carol-gonzaga.svg" alt="Minha Logo" width="200"/>
+  <img src="https://raw.githubusercontent.com/CarolGonzaga/dev-carolgonzaga/d714c675cd01ad1f4594bd862e16c62d47017857/.github/logo-carol-gonzaga.svg" alt="Minha Logo" width="200"/>
 </p>
 
 </br>
@@ -17,7 +17,7 @@
 </br>
 
 <p align="center">
-  <img src=".github/preview.jpg" alt="Preview do Projeto de Portfólio" width="600"/>
+  <img src="https://github.com/CarolGonzaga/dev-carolgonzaga/blob/react-version/.github/preview.jpg?raw=true" alt="Preview do Projeto de Portfólio" width="600"/>
 </p>
 
 </br>
