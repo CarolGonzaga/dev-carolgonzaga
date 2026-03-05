@@ -10,6 +10,20 @@ export const experienceData: Experience[] = [
     {
         id: 1,
         date: "2025 - Atual",
+        title: "ANALISTA EM ENGENHARIA DE SISTEMAS JÚNIOR",
+        company: "NTT DATA",
+        details: [
+            "Desenvolvimento e documentação de APIs REST.",
+            "Organização de aplicações em camadas seguindo boas práticas de arquitetura.",
+            "Implementação de integrações entre serviços.",
+            "Aplicação de testes automatizados.",
+            "Containerização de aplicações com Docker.",
+            "Versionamento com Git e fluxo colaborativo.",
+        ],
+    },
+    {
+        id: 2,
+        date: "2025 - 2025",
         title: "Analista SAP",
         company: "Numen IT",
         details: [
@@ -22,7 +36,7 @@ export const experienceData: Experience[] = [
         ],
     },
     {
-        id: 2,
+        id: 3,
         date: "2024 - 2025",
         title: "Desenvolvedora Front End",
         company: "Projetos Pessoais e Freelance",
@@ -35,7 +49,7 @@ export const experienceData: Experience[] = [
         ],
     },
     {
-        id: 3,
+        id: 4,
         date: "2017 - 2024",
         title: "Sócia Proprietária",
         company: "Lima Limão Baby Store Ltda",
@@ -47,7 +61,7 @@ export const experienceData: Experience[] = [
         ],
     },
     {
-        id: 4,
+        id: 5,
         date: "2010 - 2016",
         title: "Sócia Proprietária",
         company: "Baby Center Comércio de Fraldas Ltda",
@@ -58,7 +72,7 @@ export const experienceData: Experience[] = [
         ],
     },
     {
-        id: 5,
+        id: 6,
         date: "2009 - 2010",
         title: "Auxiliar de Loja",
         company: "União Pereira Assistência Técnica",

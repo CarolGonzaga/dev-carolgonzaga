@@ -72,10 +72,15 @@ function Resumo() {
                 <div className={`card ${styles.aboutCard}`}>
                     <h3>Sobre Mim</h3>
                     <p>
-                        Desenvolvedora Front-End com foco em interfaces modernas e responsivas, utilizando React.js, Vue.js, TypeScript e Next.js. Atualmente, atuo como Analista SAP na Numen IT, desenvolvendo integrações em SAP BTP (CPI, API Management e CDS Views) e ampliando minha visão sobre arquitetura e conectividade entre sistemas.
+                        Desenvolvedora Full Stack com experiência em integrações SAP (PI, CPI e API
+                        Management) em ambiente enterprise, atuando na implementação e organização
+                        de iFlows, transporte entre ambientes e validação de integrações. Possuo
+                        experiência na construção de APIs REST utilizando Node.js, React e TypeScript,
+                        com foco em arquitetura e integração entre sistemas distribuídos
                     </p>
                     <p>
-                        Com mais de 14 anos de experiência empreendedora, desenvolvi forte capacidade de organização, resolução de problemas e colaboração multidisciplinar.
+                        Tenho conhecimento em mensageria com Kafka, containerização com Docker e
+                        fundamentos de cloud (AWS e Google Cloud).
                     </p>
                     <p>
                         Estou cursando pós-graduação em Desenvolvimento Full Stack, com o objetivo de expandir minha base técnica e unir o melhor do front-end, integrações e back-end para criar soluções completas e de alto desempenho.
